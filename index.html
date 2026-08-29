@@ -1,37 +1,44 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="theme-color" content="#171717">
 <meta name="description" content="Simran & Jag's Romantic London Escape — November 19–23, 2026">
 <title>Simran & Jag | London 2026</title>
 <style>
-:root{--ink:#171717;--muted:#66615b;--cream:#f7f3ed;--warm:#eee7dc;--white:#fff;--gold:#b29462;--line:#ded8cf;--radius:18px;--shadow:0 12px 35px rgba(25,20,15,.08)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;line-height:1.55}button,input{font:inherit}button{cursor:pointer}
-.hero{min-height:88vh;background:linear-gradient(rgba(20,20,20,.48),rgba(20,20,20,.58)),radial-gradient(circle at 20% 20%,#7c7c75,#272727 70%);color:#fff;display:flex;align-items:flex-end;padding:28px 22px 55px;position:relative;overflow:hidden}
-.hero:before{content:"LONDON";position:absolute;top:42px;left:18px;font-size:clamp(4.5rem,20vw,13rem);font-weight:800;letter-spacing:-.08em;opacity:.07;line-height:1}.hero-content{width:100%;max-width:760px;margin:auto;position:relative;z-index:2}.eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:.72rem;font-weight:700;margin-bottom:14px;opacity:.82}.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(3.2rem,15vw,7.5rem);line-height:.88;font-weight:400;margin:0 0 22px;letter-spacing:-.055em}.hero-sub{font-family:Georgia,serif;font-size:1.25rem;max-width:560px;color:#f3eee8}.hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:30px}.hero-pill{border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.1);backdrop-filter:blur(8px);padding:9px 13px;border-radius:999px;font-size:.78rem}
-.container{width:min(1100px,calc(100% - 34px));margin:auto}section{padding:58px 0}.section-kicker{color:var(--gold);text-transform:uppercase;letter-spacing:.18em;font-weight:700;font-size:.7rem;margin-bottom:8px}.section-title{font-family:Georgia,serif;font-size:clamp(2rem,8vw,3.5rem);font-weight:400;line-height:1;margin:0 0 14px}.section-intro{color:var(--muted);max-width:700px}.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
-.quick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:28px}.quick-card{padding:20px}.quick-label{color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-size:.66rem;font-weight:700}.quick-value{font-family:Georgia,serif;font-size:1.4rem;margin-top:6px}
-.hotel-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:28px}.hotel{padding:24px;position:relative;overflow:hidden}.hotel.recommended{border:1.5px solid var(--gold)}.hotel-badge{position:absolute;top:18px;right:18px;background:var(--ink);color:#fff;font-size:.65rem;text-transform:uppercase;letter-spacing:.12em;padding:7px 9px;border-radius:999px}.hotel-number{color:var(--gold);font-size:.7rem;text-transform:uppercase;letter-spacing:.16em;font-weight:700}.hotel h3{font-family:Georgia,serif;font-size:1.8rem;font-weight:400;margin:7px 0 2px}.hotel-area{color:var(--muted);font-size:.85rem}.hotel-price{margin-top:18px;font-size:1.4rem;font-weight:700}.hotel-price span{color:var(--muted);font-size:.78rem;font-weight:400}.hotel-copy{margin-top:15px;color:var(--muted);font-size:.9rem}.hotel-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}.tag{background:var(--cream);border-radius:999px;padding:6px 9px;font-size:.68rem}
-.split{margin-top:28px;padding:24px;background:var(--ink);color:#fff;border-radius:var(--radius)}.split h3{font-family:Georgia,serif;font-weight:400;font-size:1.65rem;margin:0 0 8px}.split p{color:#cfcac3;margin:0}
-.day-nav{display:flex;gap:8px;overflow-x:auto;padding:4px 0 15px;scrollbar-width:none}.day-nav::-webkit-scrollbar{display:none}.day-button{flex:0 0 auto;border:1px solid var(--line);background:#fff;border-radius:999px;padding:10px 15px;color:var(--muted);font-size:.76rem;font-weight:700}.day-button.active{background:var(--ink);border-color:var(--ink);color:#fff}.day-panel{display:none}.day-panel.active{display:block}.day-header{padding:27px;background:#fff;border:1px solid var(--line);border-radius:var(--radius) var(--radius) 0 0}.day-date{color:var(--gold);text-transform:uppercase;letter-spacing:.15em;font-size:.68rem;font-weight:700}.day-title{font-family:Georgia,serif;font-weight:400;font-size:clamp(2rem,8vw,3.2rem);line-height:1;margin:8px 0}.day-subtitle{color:var(--muted)}.day-score{display:inline-block;margin-top:15px;padding:7px 10px;background:var(--cream);border-radius:999px;font-size:.68rem;font-weight:700}.timeline{background:#fff;border:1px solid var(--line);border-top:0;border-radius:0 0 var(--radius) var(--radius)}.stop{padding:24px 22px;border-bottom:1px solid var(--line)}.stop:last-child{border-bottom:0}.stop-time{color:var(--gold);text-transform:uppercase;letter-spacing:.13em;font-size:.66rem;font-weight:800}.stop h4{font-family:Georgia,serif;font-size:1.45rem;font-weight:400;margin:5px 0}.stop p{color:var(--muted);font-size:.88rem;margin:6px 0 0}.stop-note{margin-top:12px;padding:11px 13px;border-left:2px solid var(--gold);background:var(--cream);font-size:.78rem;color:var(--muted)}
-.accordion{margin-top:12px}.accordion button{width:100%;background:transparent;border:0;border-top:1px solid var(--line);padding:15px 0;text-align:left;font-weight:700;display:flex;justify-content:space-between}.accordion-content{display:none;padding:0 0 15px;color:var(--muted);font-size:.85rem}.accordion.open .accordion-content{display:block}.plus{transition:transform .2s}.accordion.open .plus{transform:rotate(45deg)}
-.experience-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:28px}.experience{padding:20px}.experience-number{font-family:Georgia,serif;font-size:1.6rem;color:var(--gold)}.experience h3{font-family:Georgia,serif;font-weight:400;margin:5px 0;font-size:1.3rem}.experience p{color:var(--muted);font-size:.85rem;margin:0}
-.budget{background:var(--ink);color:#fff;padding:30px 22px;border-radius:var(--radius)}.budget .section-kicker{color:#c5aa7d}.budget-total{font-family:Georgia,serif;font-size:clamp(3rem,13vw,5.5rem);font-weight:400;line-height:1;margin:12px 0}.budget-sub{color:#bcb7b1;font-size:.82rem}.budget-row{display:flex;justify-content:space-between;gap:20px;border-top:1px solid #383838;padding:14px 0;font-size:.85rem}.budget-row strong{color:#fff}
-.checklist{margin-top:25px}.check{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);font-size:.88rem}.check input{width:19px;height:19px;accent-color:var(--ink)}
-footer{padding:55px 0 70px;text-align:center;color:var(--muted)}.footer-title{font-family:Georgia,serif;font-size:2rem;color:var(--ink)}.footer-small{font-size:.7rem;text-transform:uppercase;letter-spacing:.16em}
-@media(min-width:760px){.hero{min-height:82vh;padding:60px}.container{width:min(1180px,calc(100% - 80px))}section{padding:85px 0}.quick-grid{grid-template-columns:repeat(4,1fr)}.hotel-grid{grid-template-columns:repeat(2,1fr)}.experience-grid{grid-template-columns:repeat(3,1fr)}.stop{display:grid;grid-template-columns:130px 1fr;gap:20px}.stop-time{padding-top:5px}.budget{padding:42px}}
+:root{--ink:#171717;--muted:#68635d;--cream:#f6f1e9;--warm:#ebe2d5;--white:#fff;--gold:#b28d58;--line:#ded6cb;--dark:#222;--radius:20px;--shadow:0 14px 38px rgba(30,24,18,.09)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;line-height:1.55;overflow-x:hidden}button,input{font:inherit}button{cursor:pointer}
+img{display:block;width:100%;object-fit:cover}.hero{min-height:92vh;color:#fff;display:flex;align-items:flex-end;padding:25px 20px 48px;position:relative;overflow:hidden;background:#222}
+.hero-photo{position:absolute;inset:0;background-image:linear-gradient(rgba(10,10,10,.38),rgba(10,10,10,.72)),url("https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1800&q=85");background-size:cover;background-position:center}
+.hero-content{width:min(900px,100%);margin:auto;position:relative;z-index:2}.eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:.68rem;font-weight:700;margin-bottom:13px;opacity:.85}.hero h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(3.6rem,18vw,8.5rem);line-height:.82;font-weight:400;margin:0 0 23px;letter-spacing:-.06em}.hero-sub{font-family:Georgia,serif;font-size:1.18rem;max-width:650px;color:#f4eee6}.hero-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:27px}.hero-pill{border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.12);backdrop-filter:blur(8px);padding:8px 12px;border-radius:999px;font-size:.72rem}
+.container{width:min(1120px,calc(100% - 32px));margin:auto}section{padding:58px 0}.section-kicker{color:var(--gold);text-transform:uppercase;letter-spacing:.19em;font-weight:800;font-size:.65rem;margin-bottom:9px}.section-title{font-family:Georgia,serif;font-size:clamp(2.15rem,9vw,4rem);font-weight:400;line-height:.95;margin:0 0 15px;letter-spacing:-.03em}.section-intro{color:var(--muted);max-width:720px}.card{background:var(--white);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.quick-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:9px;margin-top:27px}.quick-card{padding:17px}.quick-label{color:var(--muted);text-transform:uppercase;letter-spacing:.12em;font-size:.61rem;font-weight:800}.quick-value{font-family:Georgia,serif;font-size:1.25rem;margin-top:5px}
+.hotel-grid{display:grid;grid-template-columns:1fr;gap:14px;margin-top:27px}.hotel{overflow:hidden}.hotel-photo{height:205px}.hotel-copy-wrap{padding:22px}.hotel.recommended{border:1.5px solid var(--gold)}.hotel-badge{display:inline-block;background:var(--ink);color:#fff;font-size:.6rem;text-transform:uppercase;letter-spacing:.12em;padding:7px 9px;border-radius:999px;margin-bottom:11px}.hotel-number{color:var(--gold);font-size:.65rem;text-transform:uppercase;letter-spacing:.15em;font-weight:800}.hotel h3{font-family:Georgia,serif;font-size:1.75rem;font-weight:400;margin:7px 0 2px}.hotel-area{color:var(--muted);font-size:.82rem}.hotel-copy{margin-top:14px;color:var(--muted);font-size:.86rem}.hotel-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}.tag{background:var(--cream);border-radius:999px;padding:6px 8px;font-size:.63rem}
+.split{margin-top:16px;padding:23px;background:var(--ink);color:#fff;border-radius:var(--radius)}.split h3{font-family:Georgia,serif;font-weight:400;font-size:1.6rem;margin:0 0 8px}.split p{color:#d0cbc4;margin:0;font-size:.88rem}.decision{margin-top:13px;padding:16px 18px;background:#efe5d7;border-left:3px solid var(--gold);border-radius:0 14px 14px 0;font-size:.84rem;color:#504b45}
+.sticky-wrap{position:sticky;top:0;z-index:20;background:rgba(246,241,233,.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);padding:9px 0}.day-nav{display:flex;gap:7px;overflow-x:auto;scrollbar-width:none}.day-nav::-webkit-scrollbar{display:none}.day-button{flex:0 0 auto;border:1px solid var(--line);background:#fff;border-radius:999px;padding:9px 13px;color:var(--muted);font-size:.67rem;font-weight:800}.day-button.active{background:var(--ink);border-color:var(--ink);color:#fff}
+.progress{height:3px;background:#ddd3c5}.progress-bar{height:3px;width:20%;background:var(--gold);transition:width .25s}
+.day-panel{display:none;padding-top:24px}.day-panel.active{display:block}.day-header{position:relative;overflow:hidden;color:#fff;min-height:420px;border-radius:var(--radius);display:flex;align-items:flex-end;padding:24px;background:#333}.day-header:before{content:"";position:absolute;inset:0;background:linear-gradient(transparent 20%,rgba(0,0,0,.76));z-index:1}.day-image{position:absolute;inset:0;background-size:cover;background-position:center;transition:transform 1s ease}.day-panel.active .day-image{transform:scale(1.03)}.day-header-content{position:relative;z-index:2}.day-date{color:#e4c99c;text-transform:uppercase;letter-spacing:.15em;font-size:.63rem;font-weight:800}.day-title{font-family:Georgia,serif;font-weight:400;font-size:clamp(2.5rem,11vw,4.7rem);line-height:.9;margin:8px 0}.day-subtitle{color:#eee8e0;max-width:600px;font-size:.9rem}.day-score{display:inline-block;margin-top:15px;padding:7px 10px;background:rgba(255,255,255,.13);backdrop-filter:blur(7px);border:1px solid rgba(255,255,255,.2);border-radius:999px;font-size:.6rem;font-weight:800}
+.timeline{background:#fff;border:1px solid var(--line);border-top:0;border-radius:0 0 var(--radius) var(--radius)}.stop{padding:23px 20px;border-bottom:1px solid var(--line)}.stop:last-child{border-bottom:0}.stop-time{color:var(--gold);text-transform:uppercase;letter-spacing:.12em;font-size:.62rem;font-weight:900}.stop h4{font-family:Georgia,serif;font-size:1.4rem;font-weight:400;margin:5px 0}.stop p{color:var(--muted);font-size:.84rem;margin:6px 0 0}.stop-note{margin-top:11px;padding:10px 12px;border-left:2px solid var(--gold);background:var(--cream);font-size:.73rem;color:var(--muted)}
+.photo-strip{display:grid;grid-auto-flow:column;grid-auto-columns:82%;gap:10px;overflow-x:auto;margin:17px 0 0;padding-bottom:4px;scroll-snap-type:x mandatory;scrollbar-width:none}.photo-strip::-webkit-scrollbar{display:none}.photo-card{height:235px;border-radius:16px;overflow:hidden;scroll-snap-align:start;position:relative}.photo-card img{height:100%}.photo-card span{position:absolute;bottom:10px;left:10px;color:#fff;background:rgba(0,0,0,.48);padding:6px 9px;border-radius:999px;font-size:.62rem;backdrop-filter:blur(5px)}
+.experience-grid{display:grid;grid-template-columns:1fr;gap:11px;margin-top:26px}.experience{padding:20px}.experience-number{font-family:Georgia,serif;font-size:1.55rem;color:var(--gold)}.experience h3{font-family:Georgia,serif;font-weight:400;margin:5px 0;font-size:1.28rem}.experience p{color:var(--muted);font-size:.82rem;margin:0}
+.budget{background:var(--ink);color:#fff;padding:28px 21px;border-radius:var(--radius)}.budget .section-kicker{color:#c8ab7a}.budget-total{font-family:Georgia,serif;font-size:clamp(3rem,14vw,5.5rem);font-weight:400;line-height:1;margin:12px 0}.budget-sub{color:#bcb7b1;font-size:.78rem}.budget-row{display:flex;justify-content:space-between;gap:20px;border-top:1px solid #383838;padding:13px 0;font-size:.82rem}.budget-row strong{color:#fff}
+.accordion{margin-top:9px}.accordion button{width:100%;background:transparent;border:0;border-top:1px solid var(--line);padding:14px 0;text-align:left;font-weight:750;display:flex;justify-content:space-between;font-size:.87rem}.accordion-content{display:none;padding:0 0 14px;color:var(--muted);font-size:.8rem}.accordion.open .accordion-content{display:block}.plus{transition:transform .2s}.accordion.open .plus{transform:rotate(45deg)}
+.checklist{margin-top:23px}.check{display:flex;align-items:center;gap:11px;padding:13px 0;border-bottom:1px solid var(--line);font-size:.82rem}.check input{width:18px;height:18px;accent-color:var(--ink)}
+footer{padding:55px 0 70px;text-align:center;color:var(--muted)}.footer-title{font-family:Georgia,serif;font-size:2rem;color:var(--ink)}.footer-small{font-size:.64rem;text-transform:uppercase;letter-spacing:.16em}
+@media(min-width:760px){.hero{min-height:88vh;padding:60px}.container{width:min(1160px,calc(100% - 80px))}section{padding:85px 0}.quick-grid{grid-template-columns:repeat(4,1fr)}.hotel-grid{grid-template-columns:repeat(2,1fr)}.hotel-photo{height:260px}.experience-grid{grid-template-columns:repeat(3,1fr)}.stop{display:grid;grid-template-columns:130px 1fr;gap:20px}.stop-time{padding-top:5px}.photo-strip{grid-auto-columns:360px}.photo-card{height:260px}.budget{padding:42px}}
 </style>
 </head>
 <body>
 
 <header class="hero">
+<div class="hero-photo"></div>
 <div class="hero-content">
 <div class="eyebrow">Simran & Jag · Husband & Wife</div>
 <h1>London,<br>for two.</h1>
-<div class="hero-sub">A romantic first London adventure — classic landmarks, red telephone boxes, double-decker buses, beautiful dinners and two very different neighbourhoods to call home.</div>
-<div class="hero-meta"><div class="hero-pill">Nov 19–23, 2026</div><div class="hero-pill">4 nights · 5 days</div><div class="hero-pill">First London trip</div><div class="hero-pill">Romantic · Classic · Easy</div></div>
+<div class="hero-sub">Your first London trip — made cinematic. Classic red telephone boxes, double-decker buses, royal London, cosy streets, beautiful dinners and two completely different neighbourhoods to call home.</div>
+<div class="hero-meta"><div class="hero-pill">Nov 19–23, 2026</div><div class="hero-pill">4 nights · 5 days</div><div class="hero-pill">First London trip</div><div class="hero-pill">Romantic · Classic · Effortless</div></div>
 </div>
 </header>
 
@@ -39,48 +46,63 @@ footer{padding:55px 0 70px;text-align:center;color:var(--muted)}.footer-title{fo
 <div class="container">
 <div class="section-kicker">The big picture</div>
 <h2 class="section-title">Five days.<br>Two Londons.</h2>
-<p class="section-intro">Instead of staying in one expensive central hotel for all four nights, the trip intentionally moves once — from the West End to Shoreditch. That gives you two neighbourhood experiences without sacrificing convenience.</p>
+<p class="section-intro">The hotel strategy is now intentionally <strong>West London first → East London second</strong>. That gives you a classic first impression and then a more atmospheric, creative London — without paying to stay in one ultra-premium neighbourhood for all four nights.</p>
 <div class="quick-grid">
 <div class="card quick-card"><div class="quick-label">Arrive</div><div class="quick-value">Thu · Nov 19</div><div class="quick-label">7:25 AM · LHR</div></div>
 <div class="card quick-card"><div class="quick-label">Return</div><div class="quick-value">Mon · Nov 23</div><div class="quick-label">4:55 PM · LHR</div></div>
-<div class="card quick-card"><div class="quick-label">Hotel split</div><div class="quick-value">2 + 2 nights</div><div class="quick-label">West End → East London</div></div>
-<div class="card quick-card"><div class="quick-label">Style</div><div class="quick-value">Classic London</div><div class="quick-label">with a romantic twist</div></div>
+<div class="card quick-card"><div class="quick-label">Hotel split</div><div class="quick-value">2 + 2 nights</div><div class="quick-label">Marylebone → Shoreditch</div></div>
+<div class="card quick-card"><div class="quick-label">Vibe</div><div class="quick-value">Classic → Cool</div><div class="quick-label">romantic + adventurous</div></div>
 </div>
 </div>
 </section>
 
 <section>
 <div class="container">
-<div class="section-kicker">Where you'll stay</div>
-<h2 class="section-title">One trip.<br>Two home bases.</h2>
-<p class="section-intro">The hotel split is part of the itinerary — not just a place to sleep. The first hotel makes classic sightseeing effortless. The second lets you experience London's creative east.</p>
+<div class="section-kicker">The hotel decision</div>
+<h2 class="section-title">The new<br>recommendation.</h2>
+<p class="section-intro">Between the two first-hotel options, <strong>Hyatt Regency London – The Churchill is my pick for this specific trip.</strong> Andaz Liverpool Street is excellent, but pairing it with Aethos Shoreditch makes the two hotel bases feel too similar geographically.</p>
 <div class="hotel-grid">
 <article class="card hotel recommended">
-<div class="hotel-badge">Recommended</div>
-<div class="hotel-number">Nights 1–2 · Nov 19–21</div>
-<h3>W London</h3><div class="hotel-area">Soho / Leicester Square</div>
-<div class="hotel-price">~$1,077 <span>shown 2-night total</span></div>
-<div class="hotel-copy">The strategic choice for your first two nights: step outside and you're immediately surrounded by the West End, Soho, Chinatown, Covent Garden and Trafalgar Square.</div>
-<div class="hotel-tags"><span class="tag">West End</span><span class="tag">Soho</span><span class="tag">Walkable</span><span class="tag">Date-night friendly</span></div>
+<div class="hotel-photo"><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=82" alt="Luxury London hotel atmosphere"></div>
+<div class="hotel-copy-wrap">
+<div class="hotel-badge">My pick · Nights 1–2</div>
+<div class="hotel-number">Nov 19–21 · Marylebone / West End</div>
+<h3>Hyatt Regency London – The Churchill</h3><div class="hotel-area">30 Portman Square · Marylebone</div>
+<div class="hotel-copy">This is the better opening chapter. The hotel sits in Marylebone, close to Oxford Street, Hyde Park, Bond Street and the West End, giving you a refined central base with a calmer neighbourhood feel. citeturn0search6turn0search7</div>
+<div class="hotel-tags"><span class="tag">Classic British</span><span class="tag">Marylebone</span><span class="tag">Hyde Park</span><span class="tag">West End</span></div>
+</div>
 </article>
 <article class="card hotel recommended">
-<div class="hotel-badge">Recommended</div>
-<div class="hotel-number">Nights 3–4 · Nov 21–23</div>
-<h3>Aethos London Shoreditch</h3><div class="hotel-area">Shoreditch / East London</div>
-<div class="hotel-price">~$869 <span>shown 2-night total</span></div>
-<div class="hotel-copy">A completely different London for the second half: Brick Lane, Spitalfields, Shoreditch, the City, Tower Bridge and atmospheric evening walks along the Thames.</div>
-<div class="hotel-tags"><span class="tag">Shoreditch</span><span class="tag">East London</span><span class="tag">Food</span><span class="tag">Neighbourhood feel</span></div>
+<div class="hotel-photo"><img src="https://images.unsplash.com/photo-1514924013411-cbf25faa35bb?auto=format&fit=crop&w=1200&q=82" alt="East London street atmosphere"></div>
+<div class="hotel-copy-wrap">
+<div class="hotel-badge">Keep · Nights 3–4</div>
+<div class="hotel-number">Nov 21–23 · East London</div>
+<h3>Aethos London Shoreditch</h3><div class="hotel-area">Shoreditch · East London</div>
+<div class="hotel-copy">This remains the perfect second chapter: food, nightlife, Brick Lane, Spitalfields and a completely different urban texture. It makes the hotel split actually feel worthwhile.</div>
+<div class="hotel-tags"><span class="tag">Shoreditch</span><span class="tag">Brick Lane</span><span class="tag">Food</span><span class="tag">Creative</span></div>
+</div>
 </article>
 </div>
-<div class="split"><h3>Why this split wins.</h3><p>Approx. $1,946 for both hotels based on the displayed totals. You get two distinct neighbourhoods rather than paying a premium to stay in one ultra-luxury address for the entire trip. The move happens only once, on Saturday morning.</p></div>
+<div class="split"><h3>Why I changed the recommendation.</h3><p><strong>Churchill + Aethos</strong> gives you the greatest contrast. Churchill is your polished, classic West London chapter; Aethos is your energetic East London chapter. Andaz Liverpool Street is a terrific hotel, but it overlaps with Aethos's geography and would reduce the payoff of moving hotels.</p></div>
+<div class="decision"><strong>If price is dramatically better at Andaz:</strong> choose Andaz. Its Liverpool Street location is exceptionally convenient — it sits beside a major transport hub and puts Shoreditch, Spitalfields, Brick Lane and the City at your doorstep. citeturn0search0turn0search2 But if rates are reasonably close, Churchill wins for <em>this itinerary</em>.</div>
 </div>
 </section>
 
-<section id="itinerary">
+<section style="padding-top:20px">
 <div class="container">
-<div class="section-kicker">The itinerary</div>
-<h2 class="section-title">London, at its best.</h2>
-<p class="section-intro">The pacing alternates big sightseeing moments with slow romantic pockets. No trying to see every museum in London. You are here to actually experience it.</p>
+<div class="section-kicker">The feeling</div>
+<h2 class="section-title">Imagine this.</h2>
+<div class="photo-strip">
+<div class="photo-card"><img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=900&q=82" alt="London skyline"><span>First London morning</span></div>
+<div class="photo-card"><img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?auto=format&fit=crop&w=900&q=82" alt="London street"><span>Classic London streets</span></div>
+<div class="photo-card"><img src="https://images.unsplash.com/photo-1543832923-44667a44c804?auto=format&fit=crop&w=900&q=82" alt="London red bus"><span>Double-decker rides</span></div>
+<div class="photo-card"><img src="https://images.unsplash.com/photo-1526129318478-62ed807ebdf9?auto=format&fit=crop&w=900&q=82" alt="London architecture"><span>Old London charm</span></div>
+</div>
+</div>
+</section>
+
+<div class="sticky-wrap">
+<div class="container">
 <div class="day-nav">
 <button class="day-button active" data-day="day1">THU · 19</button>
 <button class="day-button" data-day="day2">FRI · 20</button>
@@ -88,93 +110,101 @@ footer{padding:55px 0 70px;text-align:center;color:var(--muted)}.footer-title{fo
 <button class="day-button" data-day="day4">SUN · 22</button>
 <button class="day-button" data-day="day5">MON · 23</button>
 </div>
+</div>
+<div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+</div>
+
+<section id="itinerary" style="padding-top:20px">
+<div class="container">
+<div class="section-kicker">Your interactive itinerary</div>
+<h2 class="section-title">Scroll through<br>your London story.</h2>
+<p class="section-intro">Tap a day above to jump instantly. Swipe the photo strips. Expand the little notes. The itinerary is intentionally paced so you can experience London rather than race through it.</p>
 
 <div class="day-panel active" id="day1">
-<div class="day-header"><div class="day-date">Thursday · November 19</div><div class="day-title">Land in London.</div><div class="day-subtitle">First impressions, Westminster, red buses & a very good first dinner.</div><div class="day-score">ROMANCE ★★★★☆ · EFFORT ★★☆☆☆ · CLASSIC LONDON ★★★★★</div></div>
+<div class="day-header"><div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1520986606214-8b456906c813?auto=format&fit=crop&w=1600&q=85')"></div><div class="day-header-content"><div class="day-date">Thursday · November 19</div><div class="day-title">Land in London.</div><div class="day-subtitle">Your first breath of London air. Westminster, red buses, Covent Garden and a beautiful first-night dinner.</div><div class="day-score">ROMANCE ★★★★☆ · EFFORT ★★☆☆☆ · CLASSIC LONDON ★★★★★</div></div></div>
 <div class="timeline">
-<div class="stop"><div class="stop-time">7:25 AM</div><div><h4>Arrive · Heathrow</h4><p>UA 901 · SFO → LHR. Take your time through immigration, collect bags and head into London.</p><div class="stop-note">Don't schedule anything that requires a strict arrival time. Your first day is intentionally flexible after the overnight flight.</div></div></div>
-<div class="stop"><div class="stop-time">Late morning</div><div><h4>Hotel drop + proper breakfast</h4><p>Head to W London, leave luggage with the hotel and get your first London breakfast before sightseeing.</p><div class="stop-note">The room may not be ready yet — that's completely fine. The goal is to become luggage-free.</div></div></div>
-<div class="stop"><div class="stop-time">12:00 PM</div><div><h4>Westminster walk</h4><p>Big Ben → Houses of Parliament → Westminster Abbey → Westminster Bridge → Thames.</p><div class="stop-note">This is your "we are actually in London" moment. Take the cheesy photos. They're worth it.</div></div></div>
-<div class="stop"><div class="stop-time">2:00 PM</div><div><h4>Classic London bus ride</h4><p>Instead of immediately taking the Tube, use a regular London double-decker bus for part of the journey. Sit upstairs, front row if available.</p><div class="stop-note">The bus itself is the experience — don't worry about making this a formal sightseeing tour.</div></div></div>
-<div class="stop"><div class="stop-time">3:00 PM</div><div><h4>Covent Garden → Seven Dials</h4><p>Wander through Covent Garden, Neal's Yard and Seven Dials. Coffee, pastries and window shopping.</p></div></div>
-<div class="stop"><div class="stop-time">5:00 PM</div><div><h4>Hotel reset</h4><p>Check in, shower, dress up and take an actual break. No guilt.</p></div></div>
-<div class="stop"><div class="stop-time">7:30 PM</div><div><h4>First London date night</h4><p>Dinner in Soho / Mayfair, followed by a slow walk through Piccadilly Circus and the West End.</p><div class="stop-note">Keep night one beautiful but low-pressure. The goal is chemistry, not checking boxes.</div></div></div>
+<div class="stop"><div class="stop-time">7:25 AM</div><div><h4>Arrive · Heathrow</h4><p>UA 901 · SFO → LHR. Immigration, bags, then into London.</p><div class="stop-note">No pressure today. You just flew overnight. The luxury is having a slow first day.</div></div></div>
+<div class="stop"><div class="stop-time">Late morning</div><div><h4>Churchill → luggage drop</h4><p>Head to Hyatt Regency London – The Churchill, leave bags and have breakfast nearby.</p></div></div>
+<div class="stop"><div class="stop-time">12:00 PM</div><div><h4>Westminster arrives first</h4><p>Big Ben → Houses of Parliament → Westminster Abbey → Westminster Bridge → Thames.</p><div class="stop-note">Take the obvious photos. This is your first London trip — embrace the tourist moment.</div></div></div>
+<div class="stop"><div class="stop-time">2:00 PM</div><div><h4>Your first double-decker</h4><p>Take a regular London bus for part of the journey. Upstairs. Window seat. No sightseeing tour required.</p></div></div>
+<div class="stop"><div class="stop-time">3:00 PM</div><div><h4>Covent Garden + Seven Dials</h4><p>Walk, browse, snack and wander. Neal's Yard is your little colour-pop detour.</p></div></div>
+<div class="stop"><div class="stop-time">5:00 PM</div><div><h4>Hotel reset</h4><p>Check in, shower, dress up and take a real break.</p></div></div>
+<div class="stop"><div class="stop-time">7:30 PM</div><div><h4>First London date night</h4><p>Dinner in Soho / Mayfair, then a slow walk through the West End.</p><div class="stop-note">Don't make night one a marathon. You want to wake up excited, not exhausted.</div></div></div>
 </div></div>
 
 <div class="day-panel" id="day2">
-<div class="day-header"><div class="day-date">Friday · November 20</div><div class="day-title">Royal London.</div><div class="day-subtitle">Buckingham Palace, red phone boxes, St James's, Trafalgar Square & the West End.</div><div class="day-score">ROMANCE ★★★★★ · EFFORT ★★★☆☆ · CLASSIC LONDON ★★★★★</div></div>
+<div class="day-header"><div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1529655683826-aba9b3e77383?auto=format&fit=crop&w=1600&q=85')"></div><div class="day-header-content"><div class="day-date">Friday · November 20</div><div class="day-title">Royal London.</div><div class="day-subtitle">Buckingham Palace, St James's, red telephone boxes, Trafalgar Square and a West End evening.</div><div class="day-score">ROMANCE ★★★★★ · EFFORT ★★★☆☆ · CLASSIC LONDON ★★★★★</div></div></div>
 <div class="timeline">
-<div class="stop"><div class="stop-time">8:00 AM</div><div><h4>Slow breakfast</h4><p>Breakfast near the hotel. Coffee, pastries, no rushing.</p></div></div>
-<div class="stop"><div class="stop-time">9:30 AM</div><div><h4>St James's Park</h4><p>Walk through the park toward Buckingham Palace. Stop for photographs along the way.</p><div class="stop-note">Look for the classic London composition: palace gates + red uniforms + red phone boxes.</div></div></div>
-<div class="stop"><div class="stop-time">11:00 AM</div><div><h4>Changing of the Guard</h4><p>Watch the ceremony at Buckingham Palace. This is one of the quintessential first-time London experiences.</p><div class="stop-note">Arrive early for a good viewing position. The ceremony is free, so this is one of the highest-value experiences of the trip.</div></div></div>
-<div class="stop"><div class="stop-time">12:00 PM</div><div><h4>The Mall → Trafalgar Square</h4><p>Walk the Mall toward Trafalgar Square. Take your time instead of jumping onto the Tube.</p></div></div>
-<div class="stop"><div class="stop-time">1:00 PM</div><div><h4>Lunch + Chinatown</h4><p>Lunch around Chinatown / Soho. This keeps you close to the rest of the afternoon.</p></div></div>
-<div class="stop"><div class="stop-time">2:30 PM</div><div><h4>Piccadilly → Carnaby → Soho</h4><p>Explore Regent Street, Carnaby Street and Soho. This is intentionally unstructured.</p></div></div>
-<div class="stop"><div class="stop-time">5:00 PM</div><div><h4>London at golden hour</h4><p>Return toward the West End, get dressed and have a cocktail before dinner.</p></div></div>
-<div class="stop"><div class="stop-time">7:30 PM</div><div><h4>West End evening</h4><p>Dinner + a London theatre show. For a first trip, this is one of the splurges worth making.</p><div class="stop-note">Choose the theatre based on what you both genuinely want to see. The West End is the experience — not just the performance.</div></div></div>
+<div class="stop"><div class="stop-time">8:00 AM</div><div><h4>Slow breakfast</h4><p>Start close to the hotel. Coffee, pastries, no rush.</p></div></div>
+<div class="stop"><div class="stop-time">9:30 AM</div><div><h4>St James's Park</h4><p>Walk toward Buckingham Palace through the park. Photograph the classic London details along the way.</p></div></div>
+<div class="stop"><div class="stop-time">11:00 AM</div><div><h4>Changing of the Guard</h4><p>Watch the ceremony at Buckingham Palace.</p><div class="stop-note">Check the official schedule close to your trip; ceremony days/times can vary.</div></div></div>
+<div class="stop"><div class="stop-time">12:00 PM</div><div><h4>The Mall → Trafalgar Square</h4><p>Walk this grand central-London route instead of taking the Tube.</p></div></div>
+<div class="stop"><div class="stop-time">1:00 PM</div><div><h4>Chinatown lunch</h4><p>Keep lunch casual and delicious. Save your budget for tonight.</p></div></div>
+<div class="stop"><div class="stop-time">2:30 PM</div><div><h4>Piccadilly → Carnaby → Soho</h4><p>Shopping, cafés, architecture and people-watching.</p></div></div>
+<div class="stop"><div class="stop-time">5:00 PM</div><div><h4>Dress-up hour</h4><p>Back to Churchill. Shower, change and have a cocktail.</p></div></div>
+<div class="stop"><div class="stop-time">7:30 PM</div><div><h4>West End night</h4><p>One excellent dinner + a theatre show.</p><div class="stop-note">This is one of the trip's intentional splurges. One memorable show beats three mediocre paid attractions.</div></div></div>
 </div></div>
 
 <div class="day-panel" id="day3">
-<div class="day-header"><div class="day-date">Saturday · November 21</div><div class="day-title">Change the view.</div><div class="day-subtitle">Check out of Soho. Cross London. Check into Shoreditch.</div><div class="day-score">ROMANCE ★★★★☆ · EFFORT ★★★☆☆ · DISCOVERY ★★★★★</div></div>
+<div class="day-header"><div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1600&q=85')"></div><div class="day-header-content"><div class="day-date">Saturday · November 21</div><div class="day-title">Change the view.</div><div class="day-subtitle">West London out. East London in. St Paul's, Borough Market, Tower Bridge and your new Shoreditch base.</div><div class="day-score">ROMANCE ★★★★☆ · EFFORT ★★★☆☆ · DISCOVERY ★★★★★</div></div></div>
 <div class="timeline">
-<div class="stop"><div class="stop-time">8:30 AM</div><div><h4>Breakfast + pack</h4><p>Easy morning at W London. Pack and leave your bags with the hotel.</p></div></div>
-<div class="stop"><div class="stop-time">10:00 AM</div><div><h4>St Paul's Cathedral</h4><p>Head east for your first major East London landmark. Explore the cathedral exterior and surrounding City streets.</p></div></div>
-<div class="stop"><div class="stop-time">11:30 AM</div><div><h4>Millennium Bridge</h4><p>Walk across the Thames toward Tate Modern. This is one of the prettiest pedestrian approaches to central London.</p></div></div>
-<div class="stop"><div class="stop-time">12:30 PM</div><div><h4>Borough Market</h4><p>Grab lunch here rather than doing another formal sit-down meal. Share things, wander, sample.</p><div class="stop-note">A deliberate cost-balancing move: spend on one or two spectacular dinners and keep daytime meals casual.</div></div></div>
-<div class="stop"><div class="stop-time">2:00 PM</div><div><h4>Tower Bridge</h4><p>Walk toward Tower Bridge and take the classic photos. Continue around the riverfront.</p></div></div>
-<div class="stop"><div class="stop-time">4:00 PM</div><div><h4>Check into Aethos Shoreditch</h4><p>Collect your luggage, settle in and enjoy your second London base.</p><div class="stop-note">The neighbourhood should feel noticeably different from Soho. That's the point of the hotel split.</div></div></div>
-<div class="stop"><div class="stop-time">6:00 PM</div><div><h4>Shoreditch at night</h4><p>Wander Brick Lane, Spitalfields and the surrounding streets. Stop wherever looks interesting.</p></div></div>
-<div class="stop"><div class="stop-time">8:00 PM</div><div><h4>East London date night</h4><p>Dinner in Shoreditch. Keep this evening more intimate and neighbourhood-focused.</p></div></div>
+<div class="stop"><div class="stop-time">8:30 AM</div><div><h4>Breakfast + pack</h4><p>Easy morning at Churchill. Leave luggage with the hotel.</p></div></div>
+<div class="stop"><div class="stop-time">10:00 AM</div><div><h4>St Paul's Cathedral</h4><p>Head east and begin the second half of the trip with London's City landmarks.</p></div></div>
+<div class="stop"><div class="stop-time">11:30 AM</div><div><h4>Millennium Bridge</h4><p>Walk across the Thames toward Tate Modern.</p></div></div>
+<div class="stop"><div class="stop-time">12:30 PM</div><div><h4>Borough Market lunch</h4><p>Share food, wander and keep the afternoon loose.</p><div class="stop-note">This is a deliberate cost-balancing meal: casual daytime food lets you spend more on your romantic dinners.</div></div></div>
+<div class="stop"><div class="stop-time">2:00 PM</div><div><h4>Tower Bridge</h4><p>Walk toward Tower Bridge and get the iconic photographs.</p></div></div>
+<div class="stop"><div class="stop-time">4:00 PM</div><div><h4>Check into Aethos Shoreditch</h4><p>Collect luggage, settle in and discover your second London home.</p></div></div>
+<div class="stop"><div class="stop-time">6:00 PM</div><div><h4>Brick Lane + Spitalfields</h4><p>Let yourselves get slightly lost. This is the point of moving east.</p></div></div>
+<div class="stop"><div class="stop-time">8:00 PM</div><div><h4>East London date night</h4><p>Dinner somewhere atmospheric around Shoreditch.</p></div></div>
 </div></div>
 
 <div class="day-panel" id="day4">
-<div class="day-header"><div class="day-date">Sunday · November 22</div><div class="day-title">The London you imagined.</div><div class="day-subtitle">Markets, double-deckers, Notting Hill and one beautiful final dinner.</div><div class="day-score">ROMANCE ★★★★★ · EFFORT ★★☆☆☆ · DISCOVERY ★★★★☆</div></div>
+<div class="day-header"><div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1505761671935-60b3a7427bad?auto=format&fit=crop&w=1600&q=85')"></div><div class="day-header-content"><div class="day-date">Sunday · November 22</div><div class="day-title">The London you imagined.</div><div class="day-subtitle">Markets, double-deckers, Notting Hill, colourful streets and the final romantic dinner.</div><div class="day-score">ROMANCE ★★★★★ · EFFORT ★★☆☆☆ · DISCOVERY ★★★★☆</div></div></div>
 <div class="timeline">
-<div class="stop"><div class="stop-time">9:00 AM</div><div><h4>Leisurely breakfast</h4><p>Slow morning at Aethos. No alarm-clock tourism.</p></div></div>
-<div class="stop"><div class="stop-time">10:30 AM</div><div><h4>Spitalfields + Brick Lane</h4><p>Explore the shops, market stalls, cafés and street art. This is the neighbourhood day.</p></div></div>
-<div class="stop"><div class="stop-time">12:30 PM</div><div><h4>Double-decker adventure</h4><p>Take a regular London bus across the city. Sit upstairs and watch London pass by.</p><div class="stop-note">Don't pay for a sightseeing bus every time. A normal city bus gives you the London experience for a fraction of the cost.</div></div></div>
-<div class="stop"><div class="stop-time">2:00 PM</div><div><h4>Notting Hill</h4><p>Portobello Road, colourful houses, cafés and neighbourhood wandering. Take the classic photographs.</p></div></div>
-<div class="stop"><div class="stop-time">4:30 PM</div><div><h4>Afternoon tea — optional splurge</h4><p>If you want one quintessentially British luxury moment, this is the day for afternoon tea.</p><div class="stop-note">If the budget is getting high, skip this and put the money toward your final dinner instead.</div></div></div>
-<div class="stop"><div class="stop-time">6:30 PM</div><div><h4>Final London sunset</h4><p>Head toward the Thames or a central viewpoint. This is intentionally unstructured.</p></div></div>
-<div class="stop"><div class="stop-time">8:00 PM</div><div><h4>Final date-night dinner</h4><p>Make this your biggest dinner of the trip. Dress up. Order the bottle. Stay for dessert.</p><div class="stop-note">The trip's luxury should come from a few memorable moments, not five consecutive expensive meals.</div></div></div>
+<div class="stop"><div class="stop-time">9:00 AM</div><div><h4>Slow breakfast</h4><p>No alarm-clock tourism. Enjoy your second hotel.</p></div></div>
+<div class="stop"><div class="stop-time">10:30 AM</div><div><h4>Spitalfields + Brick Lane</h4><p>Markets, cafés, shops, street art and people-watching.</p></div></div>
+<div class="stop"><div class="stop-time">12:30 PM</div><div><h4>Double-decker across London</h4><p>Take a normal city bus and sit upstairs. Let London pass by.</p><div class="stop-note">This is one of your highest experience-to-cost activities: it is transportation, sightseeing and a memory at the same time.</div></div></div>
+<div class="stop"><div class="stop-time">2:00 PM</div><div><h4>Notting Hill</h4><p>Portobello Road, colourful houses and the neighbourhood wander you came to London for.</p></div></div>
+<div class="stop"><div class="stop-time">4:30 PM</div><div><h4>Optional afternoon tea</h4><p>If you want one very British luxury moment, make it today.</p><div class="stop-note">If the budget is getting high, skip this and make the final dinner the splurge.</div></div></div>
+<div class="stop"><div class="stop-time">6:30 PM</div><div><h4>Final London golden hour</h4><p>Return toward the Thames or a central viewpoint and simply wander.</p></div></div>
+<div class="stop"><div class="stop-time">8:00 PM</div><div><h4>The final date-night dinner</h4><p>Dress up. Order the bottle. Get dessert. Stay a little too long.</p><div class="stop-note">This is the emotional finale — don't optimize it too aggressively for cost.</div></div></div>
 </div></div>
 
 <div class="day-panel" id="day5">
-<div class="day-header"><div class="day-date">Monday · November 23</div><div class="day-title">One last London morning.</div><div class="day-subtitle">Breakfast, final walk, Heathrow and home.</div><div class="day-score">ROMANCE ★★★★☆ · EFFORT ★☆☆☆☆ · STRESS ★☆☆☆☆</div></div>
+<div class="day-header"><div class="day-image" style="background-image:url('https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=1600&q=85')"></div><div class="day-header-content"><div class="day-date">Monday · November 23</div><div class="day-title">One last morning.</div><div class="day-subtitle">Coffee, one last walk, Heathrow and home — without turning the final day into a stress test.</div><div class="day-score">ROMANCE ★★★★☆ · EFFORT ★☆☆☆☆ · STRESS ★☆☆☆☆</div></div></div>
 <div class="timeline">
-<div class="stop"><div class="stop-time">8:00 AM</div><div><h4>Breakfast</h4><p>One last slow London breakfast. No ambitious sightseeing.</p></div></div>
-<div class="stop"><div class="stop-time">9:30 AM</div><div><h4>Last neighbourhood walk</h4><p>Coffee, one last red telephone box photo, and a final walk around Shoreditch.</p></div></div>
-<div class="stop"><div class="stop-time">11:00 AM</div><div><h4>Return to Aethos</h4><p>Collect luggage and check out.</p></div></div>
-<div class="stop"><div class="stop-time">11:30 AM</div><div><h4>Head to Heathrow</h4><p>Leave generous airport time. Your flight departs LHR at 4:55 PM.</p><div class="stop-note">Do not try to squeeze in another attraction. The trip ends better when you leave London relaxed.</div></div></div>
-<div class="stop"><div class="stop-time">4:55 PM</div><div><h4>UA 949 · LHR → SFO</h4><p>London → San Francisco. Seats shown: Jag 33A · Simran 33B.</p></div></div>
+<div class="stop"><div class="stop-time">8:00 AM</div><div><h4>Last London breakfast</h4><p>Slow breakfast near Aethos.</p></div></div>
+<div class="stop"><div class="stop-time">9:30 AM</div><div><h4>Final neighbourhood walk</h4><p>Coffee, one last red telephone box photo and a little Shoreditch wandering.</p></div></div>
+<div class="stop"><div class="stop-time">11:00 AM</div><div><h4>Collect luggage</h4><p>Return to Aethos and check out.</p></div></div>
+<div class="stop"><div class="stop-time">11:30 AM</div><div><h4>Head to Heathrow</h4><p>Leave generous time for the airport. No final-minute attraction.</p></div></div>
+<div class="stop"><div class="stop-time">4:55 PM</div><div><h4>UA 949 · LHR → SFO</h4><p>Seats shown: Jag 33A · Simran 33B.</p></div></div>
 </div></div>
 </div>
 </section>
 
 <section>
 <div class="container">
-<div class="section-kicker">Spend strategically</div><h2 class="section-title">Luxury isn't<br>the same as expensive.</h2>
-<p class="section-intro">The goal is to create the feeling of an expensive trip without paying for an expensive activity every three hours.</p>
+<div class="section-kicker">The high-value moments</div>
+<h2 class="section-title">Spend on memories,<br>not logistics.</h2>
 <div class="experience-grid">
-<article class="card experience"><div class="experience-number">01</div><h3>Spend on dinner</h3><p>Pick 2 exceptional date-night dinners rather than making every meal a reservation.</p></article>
-<article class="card experience"><div class="experience-number">02</div><h3>Use regular buses</h3><p>Double-decker buses are part of London's everyday life. Sit upstairs and turn the commute into sightseeing.</p></article>
-<article class="card experience"><div class="experience-number">03</div><h3>Walk the landmarks</h3><p>Westminster → St James's → Buckingham → Trafalgar is more memorable on foot than by Tube.</p></article>
-<article class="card experience"><div class="experience-number">04</div><h3>One theatre night</h3><p>A West End show is worth making a signature evening rather than filling the trip with paid attractions.</p></article>
-<article class="card experience"><div class="experience-number">05</div><h3>Classic photo hunt</h3><p>Red telephone boxes, black cabs, double-deckers, Buckingham Palace and Tower Bridge.</p></article>
-<article class="card experience"><div class="experience-number">06</div><h3>Leave breathing room</h3><p>London is best when you can wander into a café, shop or pub because it looks interesting.</p></article>
+<article class="card experience"><div class="experience-number">01</div><h3>Westminster at first light</h3><p>Big Ben, the Thames and that first “we're in London” feeling.</p></article>
+<article class="card experience"><div class="experience-number">02</div><h3>One classic bus ride</h3><p>Upstairs, front window if you can get it. No expensive tour necessary.</p></article>
+<article class="card experience"><div class="experience-number">03</div><h3>Royal London</h3><p>St James's Park + Buckingham Palace + Changing of the Guard.</p></article>
+<article class="card experience"><div class="experience-number">04</div><h3>One West End night</h3><p>Dress up, dinner, theatre and a late walk through the city.</p></article>
+<article class="card experience"><div class="experience-number">05</div><h3>Tower Bridge at golden hour</h3><p>A classic landmark that feels even better when you arrive on foot.</p></article>
+<article class="card experience"><div class="experience-number">06</div><h3>Notting Hill photos</h3><p>Colourful houses, Portobello Road and a slow Sunday afternoon.</p></article>
 </div>
 </div>
 </section>
 
 <section>
 <div class="container">
-<div class="section-kicker">Your shortlist</div><h2 class="section-title">If you want to<br>change the equation.</h2>
-<div class="card" style="padding:24px;margin-top:28px;">
-<div class="accordion"><button>1 Hotel Mayfair <span class="plus">+</span></button><div class="accordion-content">Beautiful premium choice for a more polished Mayfair experience, but the displayed ~$1,994 two-night total makes it difficult to justify versus W London for this sightseeing-heavy trip.</div></div>
-<div class="accordion"><button>The London EDITION <span class="plus">+</span></button><div class="accordion-content">Excellent choice if the hotel is itself part of the romantic experience. Less compelling if maximizing sightseeing-per-dollar is the priority.</div></div>
-<div class="accordion"><button>The Marylebone Hotel <span class="plus">+</span></button><div class="accordion-content">The ~$1,204 displayed two-night total makes this a very interesting value alternative. Consider it if you want something quieter, residential and elegant instead of W's energetic West End setting.</div></div>
-<div class="accordion"><button>Kimpton Fitzroy London <span class="plus">+</span></button><div class="accordion-content">A strong alternative if you want a more historic hotel feel. The displayed ~$1,366 two-night total is still considerably below the most expensive options.</div></div>
-<div class="accordion"><button>Chelsea Townhouse <span class="plus">+</span></button><div class="accordion-content">Romantic and residential, but it changes the trip's geography. Better for a Chelsea-focused London trip than for a first-time classic sightseeing itinerary.</div></div>
+<div class="section-kicker">Andaz vs Churchill</div>
+<h2 class="section-title">The quick<br>decision.</h2>
+<div class="card" style="padding:24px">
+<div class="accordion"><button>Why Churchill wins for this trip <span class="plus">+</span></button><div class="accordion-content">Marylebone gives you a different London from Aethos Shoreditch. The Churchill is close to Oxford Street, Hyde Park, Bond Street and the West End while maintaining a calmer residential setting around Portman Square. citeturn0search6turn0search7</div></div>
+<div class="accordion"><button>When Andaz should win instead <span class="plus">+</span></button><div class="accordion-content">Choose Andaz if its rate is meaningfully lower or if transport convenience is your highest priority. It is connected to Liverpool Street Station, with easy links across London and to Heathrow via the Elizabeth line, and is close to Shoreditch, Spitalfields and Brick Lane. citeturn0search0turn0search2</div></div>
+<div class="accordion"><button>Why not Andaz + Aethos? <span class="plus">+</span></button><div class="accordion-content">Both are fundamentally East London bases. That makes the hotel move less valuable because you're changing hotels without creating the same geographic contrast.</div></div>
 </div>
 </div>
 </section>
@@ -182,14 +212,15 @@ footer{padding:55px 0 70px;text-align:center;color:var(--muted)}.footer-title{fo
 <section>
 <div class="container">
 <div class="budget">
-<div class="section-kicker">Known hotel spend</div><div class="budget-total">$1,946</div>
-<div class="budget-sub">Approximate displayed total for W London + Aethos Shoreditch, assuming the two-night totals shown in your screenshots.</div>
-<div style="margin-top:28px">
-<div class="budget-row"><span>W London · 2 nights</span><strong>~$1,077</strong></div>
-<div class="budget-row"><span>Aethos Shoreditch · 2 nights</span><strong>~$869</strong></div>
-<div class="budget-row"><span>Hotel total</span><strong>~$1,946</strong></div>
+<div class="section-kicker">Known hotel spend from your shortlist</div>
+<div class="budget-total">$1,946*</div>
+<div class="budget-sub">The prior displayed total for W London + Aethos was approximately $1,946. Your new Churchill rate was not included in the supplied update, so replace this figure once you have the current Churchill quote.</div>
+<div style="margin-top:27px">
+<div class="budget-row"><span>First 2 nights · Churchill</span><strong>PRICE TBD</strong></div>
+<div class="budget-row"><span>Last 2 nights · Aethos Shoreditch</span><strong>~$869*</strong></div>
+<div class="budget-row"><span>Trip hotel total</span><strong>UPDATE AFTER BOOKING</strong></div>
 </div>
-<div style="margin-top:22px;color:#bcb7b1;font-size:.78rem">Not included: flights, food, theatre, attraction tickets, airport transportation and shopping.</div>
+<div style="margin-top:20px;color:#bcb7b1;font-size:.72rem">*Displayed hotel figures are based on the screenshots you supplied and should be rechecked before booking.</div>
 </div>
 </div>
 </section>
@@ -198,44 +229,30 @@ footer{padding:55px 0 70px;text-align:center;color:var(--muted)}.footer-title{fo
 <div class="container">
 <div class="section-kicker">Before you go</div><h2 class="section-title">London<br>ready.</h2>
 <div class="checklist">
-<label class="check"><input type="checkbox">Confirm W London reservation · Nov 19–21</label>
-<label class="check"><input type="checkbox">Confirm Aethos Shoreditch reservation · Nov 21–23</label>
-<label class="check"><input type="checkbox">Reserve two special London dinners</label>
-<label class="check"><input type="checkbox">Book West End theatre</label>
-<label class="check"><input type="checkbox">Confirm Changing of the Guard schedule before trip</label>
+<label class="check"><input type="checkbox">Book Hyatt Regency London – The Churchill · Nov 19–21</label>
+<label class="check"><input type="checkbox">Book Aethos London Shoreditch · Nov 21–23</label>
+<label class="check"><input type="checkbox">Reserve two special date-night dinners</label>
+<label class="check"><input type="checkbox">Book one West End theatre show</label>
+<label class="check"><input type="checkbox">Recheck Changing of the Guard schedule</label>
 <label class="check"><input type="checkbox">Save hotel addresses offline</label>
 <label class="check"><input type="checkbox">Pack comfortable walking shoes</label>
 <label class="check"><input type="checkbox">Pack one elevated date-night outfit</label>
-<label class="check"><input type="checkbox">Bring a compact umbrella</label>
+<label class="check"><input type="checkbox">Pack a compact umbrella</label>
 <label class="check"><input type="checkbox">Use the same contactless card/device consistently for transit</label>
 </div>
 </div>
 </section>
 
-<section style="padding-top:20px">
+<section style="padding-top:15px">
 <div class="container">
-<div class="card" style="padding:30px;background:#eee7dc">
-<div class="section-kicker">The only rules</div><h2 class="section-title" style="font-size:2.3rem">Don't turn<br>London into homework.</h2>
-<div class="accordion"><button>Take the tourist photos. <span class="plus">+</span></button><div class="accordion-content">You're first-time visitors. There is absolutely no reason to pretend you're above the classic London experiences.</div></div>
-<div class="accordion"><button>Don't overbook the days. <span class="plus">+</span></button><div class="accordion-content">Leave at least one large pocket every day for wandering. The unexpected café or beautiful street often becomes the memory.</div></div>
-<div class="accordion"><button>Splurge intentionally. <span class="plus">+</span></button><div class="accordion-content">The hotel split already saves money versus choosing two nights at the most expensive options. Put some of that difference toward two unforgettable dinners.</div></div>
-<div class="accordion"><button>Walk whenever it makes sense. <span class="plus">+</span></button><div class="accordion-content">London is one of those cities where the journey between attractions is often part of the attraction.</div></div>
-</div>
-</div>
-</section>
-
-<section>
-<div class="container">
+<div class="card" style="padding:28px;background:#eee5d8">
 <div class="section-kicker">Final recommendation</div>
-<h2 class="section-title">The trip I'd book.</h2>
-<div class="card" style="padding:26px">
-<p><strong>W London · Nov 19–21</strong><br>Use the West End as your first home base. It makes the classic London portion effortless and gives you the best access to Soho, Covent Garden, Piccadilly, Trafalgar Square and the West End.</p>
-<p><strong>Aethos London Shoreditch · Nov 21–23</strong><br>Move once on Saturday and experience a completely different side of London — Brick Lane, Spitalfields, Shoreditch, the City and Tower Bridge.</p>
-<p><strong>Why:</strong> This is the strongest experience-to-cost combination from your shortlist. Rather than paying a premium for one ultra-luxury hotel throughout the trip, you're buying <em>two different Londons</em> and keeping the itinerary geographically efficient.</p>
-<p><strong>Protect these experiences:</strong> Changing of the Guard, Westminster, a classic double-decker ride, Tower Bridge, Notting Hill, one West End theatre night and two excellent date-night dinners.</p>
-<p><strong>Save money here:</strong> regular buses instead of always using taxis or paid sightseeing buses, casual daytime lunches, walking between nearby landmarks and limiting major paid attractions.</p>
-<p><strong>Spend more here:</strong> the two romantic dinners and the one experience that feels most special to both of you.</p>
-<div class="stop-note">Important: hotel prices and displayed totals come directly from the supplied screenshots and should be rechecked before booking. Changing of the Guard schedules should also be reconfirmed close to the trip.</div>
+<h2 class="section-title" style="font-size:2.45rem">Book the contrast.</h2>
+<p><strong>Nov 19–21 · Hyatt Regency London – The Churchill.</strong> Start the trip in polished Marylebone, close to the West End, Hyde Park, Oxford Street and Bond Street. It gives the opening two nights the classic, refined London feeling you want. citeturn0search6turn0search7</p>
+<p><strong>Nov 21–23 · Aethos London Shoreditch.</strong> Then move east and let the second half feel completely different: Brick Lane, Spitalfields, Shoreditch, the City and Tower Bridge.</p>
+<p><strong>Andaz Liverpool Street is Plan B.</strong> It is arguably the more practical hotel because Liverpool Street Station is directly beside it and the property provides easy access to East London and airport rail connections. citeturn0search0turn0search2 But with Aethos already booked for nights 3–4, Churchill creates the better two-neighbourhood story.</p>
+<p><strong>The overall philosophy:</strong> classic London first, neighbourhood London second; spend on two spectacular dinners and one West End night; use walking and regular buses as part of the sightseeing; keep enough empty space to discover something neither of us planned.</p>
+<div class="decision"><strong>This should feel like a romantic London movie — not a checklist.</strong> The red bus, the phone booth, the palace, the Thames, the theatre, the rainy walk, the little café you weren't planning to visit. Those are the moments the itinerary is designed to protect.</div>
 </div>
 </div>
 </section>
@@ -245,21 +262,22 @@ footer{padding:55px 0 70px;text-align:center;color:var(--muted)}.footer-title{fo
 </footer>
 
 <script>
-document.querySelectorAll(".day-button").forEach(button=>{
-button.addEventListener("click",()=>{
-document.querySelectorAll(".day-button").forEach(b=>b.classList.remove("active"));
-document.querySelectorAll(".day-panel").forEach(p=>p.classList.remove("active"));
-button.classList.add("active");
-document.getElementById(button.dataset.day).classList.add("active");
-});
-});
-document.querySelectorAll(".accordion button").forEach(button=>{
-button.addEventListener("click",()=>button.parentElement.classList.toggle("open"));
-});
+const buttons=[...document.querySelectorAll(".day-button")];
+const panels=[...document.querySelectorAll(".day-panel")];
+const progress=document.getElementById("progressBar");
+function showDay(id){
+ buttons.forEach(b=>b.classList.toggle("active",b.dataset.day===id));
+ panels.forEach(p=>p.classList.toggle("active",p.id===id));
+ const i=buttons.findIndex(b=>b.dataset.day===id);
+ progress.style.width=((i+1)/buttons.length*100)+"%";
+ document.getElementById("itinerary").scrollIntoView({behavior:"smooth",block:"start"});
+}
+buttons.forEach(b=>b.addEventListener("click",()=>showDay(b.dataset.day)));
+document.querySelectorAll(".accordion button").forEach(button=>button.addEventListener("click",()=>button.parentElement.classList.toggle("open")));
 document.querySelectorAll(".check input").forEach((check,index)=>{
-const key="london-trip-check-"+index;
-check.checked=localStorage.getItem(key)==="true";
-check.addEventListener("change",()=>localStorage.setItem(key,check.checked));
+ const key="london-trip-check-"+index;
+ check.checked=localStorage.getItem(key)==="true";
+ check.addEventListener("change",()=>localStorage.setItem(key,check.checked));
 });
 </script>
 </body>
