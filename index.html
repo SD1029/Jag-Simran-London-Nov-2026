@@ -208,7 +208,7 @@ footer .cr{text-transform:none;letter-spacing:.02em;font-size:.72rem;margin-top:
 <h1>London,<br>for two.</h1>
 <p>Five days of the classic first-timer London: red buses, Big Ben, long lunches and two very different neighbourhoods.</p>
 <div class="cd" id="cd" role="timer" aria-label="Countdown to landing in London"></div>
-<div class="chips"><span>Nov 19–23, 2026</span><span>4 nights</span><span>UA 901 lands Thu 7:25 AM</span><span>UA 949 leaves Mon 4:55 PM</span><span>Seats 33A and 33B home</span></div>
+<div class="chips"><span>Nov 19–23, 2026</span><span>4 nights</span><span>UA 901 lands Thu 7:25 AM</span><span>UA 949 departs Mon 1:45 PM</span><span>Home seats 31L and 31J</span></div>
 </div><svg class="sky" viewBox="0 0 600 120" preserveAspectRatio="xMidYMax slice" aria-hidden="true"><use href="#skyline"/></svg></header>
 <div class="jump"><div class="w"><button data-d="thu" aria-label="Jump to Thu 19: Hello, London"><small>Thu</small><b>19</b><em>Hello, London</em></button><button data-d="fri" aria-label="Jump to Fri 20: Royal London"><small>Fri</small><b>20</b><em>Royal London</em></button><button data-d="sat" aria-label="Jump to Sat 21: Change the view"><small>Sat</small><b>21</b><em>Change the view</em></button><button data-d="sun" aria-label="Jump to Sun 22: The postcard"><small>Sun</small><b>22</b><em>The postcard</em></button><button data-d="mon" aria-label="Jump to Mon 23: One last morning"><small>Mon</small><b>23</b><em>One last morning</em></button></div></div>
 
@@ -269,6 +269,7 @@ footer .cr{text-transform:none;letter-spacing:.02em;font-size:.72rem;margin-top:
 <script>
 const D=[
 {id:"thu",a:"bigben",k:"Thu 19",t:"Hello, London.",c:"#dc241f",on:"#fff",o:"Heathrow, Marylebone, Westminster and Big Ben, Covent Garden. An easy first night.",m:"Brunch at Bill’s · dinner at Circolo Popolare",s:"Land in the morning, drop the bags, then go straight into the London postcard.",st:[
+["Wed 9 AM","Leave for SFO","You have a checked bag to drop, so head to the airport by 9:00 AM at the latest. UA 901, SFO to LHR, lands Thursday morning.","Leave home by 9:00 AM. Check in online first."],
 ["7:25 AM","Touch down at Heathrow","UA 901, SFO to LHR. Immigration, bags, then into London. Keep the morning flexible after the overnight flight."],
 ["10:30 AM","Hyatt Regency bag drop","Head to Portman Square and leave luggage. Your room is ready from 3:00 PM.","Become luggage-free before brunch."],
 ["11:00 AM","Bill’s, Baker Street","Your confirmed table for two, a short walk from the hotel. Ease in with a proper brunch.","Booked · standard seating, party of 2.","conf"],
@@ -305,12 +306,13 @@ const D=[
 ["4:30 PM","Sunset drinks at 14 Stories","Your confirmed table for two at the bar, 14th Floor, 120 Fenchurch St, EC3M 5BA. Toast your first London trip as the city lights come on.","Booked · confirmation 121272, party of 2. <a href='https://maps.app.goo.gl/goeCWZo4TppSaWss9' target='_blank' rel='noopener'>Open in Maps</a>","conf"],
 ["5:45 PM","Freshen up","Head back toward Shoreditch, change and dress for the final night."],
 ["7:00 PM","Gloria London, final dinner","Your confirmed table for two, 7:00 to 8:30 PM, at 54–56 Great Eastern St, EC2A 3QR. A colourful, glamorous dining room for your last big night.","Booked · reservation #9MFFNR4PWWM2.","conf"]]},
-{id:"mon",a:"plane",k:"Mon 23",t:"One last morning.",c:"#7b8794",on:"#fff",o:"Breakfast, a final Shoreditch walk, Heathrow, and the 4:55 PM flight home.",m:"Breakfast at Aethos",s:"No frantic final sightseeing. One last coffee, one last photo, then home.",st:[
-["8:00 AM","Final London breakfast","Enjoy breakfast, coffee and the fact you’ve spent four nights here."],
-["9:30 AM","Last neighbourhood walk","One final Shoreditch wander. Find the last red phone box, black cab or double-decker photo."],
-["11:00 AM","Check out of Aethos","Collect luggage and check out by 12:00 PM."],
-["11:30 AM","Head to Heathrow","Leave generous airport time. Don’t let a great trip end in a sprint."],
-["4:55 PM","UA 949, LHR to SFO","Your return flight. Seats: Jag 33A, Simran 33B."]]}
+{id:"mon",a:"plane",k:"Mon 23",t:"One last morning.",c:"#7b8794",on:"#fff",o:"Breakfast at Aethos, a last wander, Heathrow and the 1:45 PM flight home.",m:"Breakfast at Aethos",s:"No frantic final sightseeing. One last coffee, one last photo, then home.",st:[
+["7:30 AM","Final breakfast at Aethos","Enjoy your included breakfast, coffee and the fact you’ve spent four nights here. Pack the last bits afterward."],
+["8:30 AM","One last Shoreditch moment","A short, relaxed wander. Find the last red phone box, black cab or double-decker photo, then head back."],
+["9:00 AM","Check out of Aethos","Collect your checked bag and settle up. You don’t need to wait until the 12:00 PM check-out time."],
+["9:15 AM","Leave for Heathrow","Aim to leave the hotel by 9:15 to 9:30 AM. You have a checked bag to drop, so give yourself generous time.","Check your terminal and bag-drop opening in the United app before you set off."],
+["1:45 PM","UA 949, LHR to SFO","Your return flight, 11h 10m. Seats: Jagbir 31L, Simranjit 31J.","Booked · United confirmation P0SNNQ.","conf"],
+["4:55 PM","Touch down at SFO","Home, after the best first trip to London."]]}
 ];
 const $=s=>document.querySelector(s);
 $("#routeList").innerHTML=D.map(d=>`<li style="--c:${d.c}"><button data-d="${d.id}"><small>${d.k}</small><h3>${d.t}</h3><p>${d.o}</p><span class="meal">${d.m}</span></button></li>`).join("");
@@ -322,10 +324,10 @@ function show(id,scroll){
  if(scroll)$("#days").scrollIntoView();
 }
 document.addEventListener("click",e=>{const b=e.target.closest("[data-d]");if(b)show(b.dataset.d,true)});
-const T=[["Hyatt Regency London, Nov 19–21, confirmed",1],["Aethos London Shoreditch, Nov 21–23, confirmed",1],["Gymkhana, Fri Nov 20, 12:00–2:00 PM, confirmed",1],["Dishoom Shoreditch, Sun Nov 22, 11:00 AM, confirmed",1],["Bill’s, Baker Street, Thu 11:00, confirmed",1],["Circolo Popolare, Thu 4:30 PM, confirmed",1],["The Ivy Market Grill, Fri 7:30 PM, confirmed",1],["Brutto, Sat 9:15 PM, confirmed",1],["Sunset drinks at 14 Stories, Sun 4:30 PM, confirmed",1],["Gloria London, Sun 7:00 PM, confirmed",1],["Reconfirm the Changing of the Guard schedule",0],["Confirm Aethos $100 property-credit eligibility",0],["Confirm Aethos breakfast benefit at check-in",0],["Save hotel confirmations offline",0],["Pack comfortable walking shoes and one date-night outfit",0],["Pack a compact umbrella",0],["Use the same contactless card or phone for all transit",0]];
+const T=[["Hyatt Regency London, Nov 19–21, confirmed",1],["Aethos London Shoreditch, Nov 21–23, confirmed",1],["Gymkhana, Fri Nov 20, 12:00–2:00 PM, confirmed",1],["Dishoom Shoreditch, Sun Nov 22, 11:00 AM, confirmed",1],["Bill’s, Baker Street, Thu 11:00, confirmed",1],["Circolo Popolare, Thu 4:30 PM, confirmed",1],["The Ivy Market Grill, Fri 7:30 PM, confirmed",1],["Brutto, Sat 9:15 PM, confirmed",1],["Sunset drinks at 14 Stories, Sun 4:30 PM, confirmed",1],["Gloria London, Sun 7:00 PM, confirmed",1],["Reconfirm the Changing of the Guard schedule",0],["Confirm Aethos $100 property-credit eligibility",0],["Confirm Aethos breakfast benefit at check-in",0],["Leave for SFO by 9:00 AM Wed Nov 18 (checked bag)",0],["Leave Aethos by 9:15–9:30 AM Mon Nov 23 (checked bag)",0],["Check in online for UA 901 and UA 949",0],["Save hotel confirmations offline",0],["Pack comfortable walking shoes and one date-night outfit",0],["Pack a compact umbrella",0],["Use the same contactless card or phone for all transit",0]];
 $("#todoList").innerHTML=T.map((t,i)=>`<label><input type="checkbox" data-i="${i}" ${t[1]?"checked":""}><span>${t[0]}</span></label>`).join("");
 document.querySelectorAll("#todoList input").forEach(c=>{
- const k="london26d-"+c.dataset.i;
+ const k="london26e-"+c.dataset.i;
  try{const v=localStorage.getItem(k);if(v!==null)c.checked=v==="1"}catch(e){}
  c.addEventListener("change",()=>{try{localStorage.setItem(k,c.checked?"1":"0")}catch(e){}});
 });
@@ -336,11 +338,11 @@ ph(document.querySelector(".hero"),"hero","#0b0a0988,#0b0a09f0");
 D.forEach(d=>ph(document.querySelector("#p-"+d.id+" .dhead"),d.id,"#0b0a0988,#0b0a09e6"));
 document.querySelectorAll("[data-k]").forEach(e=>ph(e,e.dataset.k,e.classList.contains("brk")?"#0b0a0955,#0b0a0999":"#0b0a09aa,#0b0a09ee"));
 (function(){
-const T=Date.UTC(2026,10,19,7,25),E=Date.UTC(2026,10,23,16,55),el=document.getElementById("cd");
+const T=Date.UTC(2026,10,19,7,25),E=Date.UTC(2026,10,24,0,55),el=document.getElementById("cd");
 const u=[["days",864e5,1e9],["hours",36e5,24],["mins",6e4,60],["secs",1e3,60]];
 function tick(){const n=Date.now();let h;
  if(n<T){const d=T-n;h='<div class="cdn">'+u.map(x=>`<div><b>${String(Math.floor(d/x[1])%x[2]).padStart(2,"0")}</b><small>${x[0]}</small></div>`).join("")+'</div><p class="cdl">Until we land at Heathrow</p>'}
- else if(n<E){const k=new Date(n).getUTCDate()-18;h=`<p class="cdm">You’re in London</p><p class="cdl">Day ${k} of 5</p>`}
+ else if(n<E){const k=Math.min(5,new Date(n).getUTCDate()-18);h=`<p class="cdm">You’re in London</p><p class="cdl">Day ${k} of 5</p>`}
  else h='<p class="cdm">Home, with the memories</p>';
  if(el.dataset.s!==h){el.innerHTML=h;el.dataset.s=h}}
 tick();setInterval(tick,1000)})();
