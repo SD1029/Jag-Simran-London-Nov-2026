@@ -220,6 +220,11 @@ footer .cr{text-transform:none;letter-spacing:.02em;font-size:.72rem;margin-top:
 .th .art{width:38px;height:38px}
 .stops .n{display:flow-root}
 }
+.leaflet-tile-pane{filter:none}
+.leaflet-control-layers{background:#13110f!important;color:#f3ece0!important;border:1px solid #c9a96a!important;border-radius:0!important;font-size:.85rem}
+.leaflet-control-layers label{margin:2px 0}
+.leaflet-bar a{background:#13110f;color:#c9a96a;border-color:#3a3226}
+.leaflet-bar a:hover{background:#1b1711;color:#ecd9a8}
 </style>
 </head>
 <body>
@@ -282,7 +287,7 @@ footer .cr{text-transform:none;letter-spacing:.02em;font-size:.72rem;margin-top:
 
 <section id="mapsec" class="coda"><div class="w">
 <h2>How much of London<br>you’ll have seen.</h2>
-<p class="lede">Every stop, pinned. The dashed gold outline is the area your trip covers. Tap a day to trace its route.</p>
+<p class="lede">Every stop, pinned. The dashed gold outline is the area your trip covers. Tap a day to trace its route. Scroll or pinch to zoom, and switch between Dark, Street and Satellite views.</p>
 <div class="mst" id="mst"></div>
 <div class="mapf" id="mapf"></div>
 <div id="map" role="application" aria-label="Interactive map of your London stops"></div>
@@ -415,8 +420,11 @@ if(!window.L)return;
 const PT={lhr:["Heathrow",51.47,-0.4543],hy:["Hyatt Regency",51.5141,-0.1585],bil:["Bill’s, Baker Street",51.5204,-0.1573],wm:["Westminster and Big Ben",51.5007,-0.1246],cg:["Covent Garden",51.5117,-0.1226],cir:["Circolo Popolare",51.5176,-0.1349],sox:["Soho lights",51.5136,-0.1324],sj:["St James’s Park",51.5025,-0.1348],bp:["Buckingham Palace",51.5014,-0.1419],gym:["Gymkhana",51.5086,-0.1425],car:["Piccadilly and Carnaby",51.5133,-0.1406],tra:["Trafalgar Square",51.508,-0.1281],ivy:["The Ivy Market Grill",51.5118,-0.1237],aet:["Aethos Shoreditch",51.5253,-0.0786],stp:["St Paul’s Cathedral",51.5138,-0.0984],mil:["Millennium Bridge",51.5095,-0.0985],bor:["Borough Market",51.5055,-0.091],twb:["Tower Bridge",51.5055,-0.0754],tam:["The Tamil Prince",51.5385,-0.1155],bru:["Brutto",51.5226,-0.11],dis:["Dishoom Shoreditch",51.5252,-0.0777],spi:["Spitalfields and Brick Lane",51.5198,-0.0716],nh:["Notting Hill",51.5155,-0.205],kg:["Kensington Gardens",51.5057,-0.1877],s14:["14 Stories",51.513,-0.08],glo:["Gloria London",51.5245,-0.08]};
 const DR={thu:["lhr","hy","bil","wm","cg","cir","sox"],fri:["hy","sj","bp","gym","car","tra","ivy"],sat:["hy","aet","stp","mil","bor","twb","aet","tam","aet","bru"],sun:["dis","spi","nh","kg","s14","glo"],mon:["aet","lhr"]};
 const DC={thu:"#ecd9a8",fri:"#e39a7b",sat:"#8cc7a6",sun:"#9bb7e8",mon:"#bdb3a3"},DN={thu:"Thursday",fri:"Friday",sat:"Saturday",sun:"Sunday",mon:"Monday"};
-const m=L.map("map",{scrollWheelZoom:false}).setView([51.515,-0.12],12);
-L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap contributors",maxZoom:18}).addTo(m);
+const m=L.map("map",{scrollWheelZoom:true,dragging:!L.Browser.mobile,minZoom:9,maxZoom:19}).setView([51.515,-0.12],12);
+const E=(p,n)=>L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/"+p+"/MapServer/tile/{z}/{y}/{x}",{attribution:"Tiles © Esri",maxNativeZoom:n,maxZoom:19});
+const dark=L.layerGroup([E("Canvas/World_Dark_Gray_Base",16),E("Canvas/World_Dark_Gray_Reference",16)]).addTo(m);
+L.control.layers({"Dark":dark,"Street":E("World_Street_Map",19),"Satellite":E("World_Imagery",19)},null,{collapsed:false,position:"topright"}).addTo(m);
+
 const G={};
 Object.keys(DR).forEach(d=>{const ks=DR[d];G[d]=L.featureGroup([L.polyline(ks.map(k=>[PT[k][1],PT[k][2]]),{color:DC[d],weight:3,opacity:.85,dashArray:"6 8"}),...ks.filter((k,i)=>ks.indexOf(k)==i).map(k=>L.marker([PT[k][1],PT[k][2]],{icon:L.divIcon({className:"",html:`<i class="pin" style="--p:${DC[d]}"></i>`,iconSize:[18,18]})}).bindPopup(`<b>${PT[k][0]}</b><br>${DN[d]}`))])});
 const pp=Object.entries(PT).filter(e=>e[0]!="lhr").map(e=>[e[1][2]*69.3,e[1][1]*111.19,e[1][1],e[1][2]]).sort((a,b)=>a[0]-b[0]||a[1]-b[1]);
