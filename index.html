@@ -204,6 +204,22 @@ footer .cr{text-transform:none;letter-spacing:.02em;font-size:.72rem;margin-top:
 .leaflet-container{font-family:inherit}
 .leaflet-control-attribution{background:#0b0a09cc!important;color:#a99f8c!important}
 .leaflet-control-attribution a{color:#c9a96a!important}
+
+.leaflet-tile-pane{filter:invert(1) hue-rotate(180deg) brightness(.85) contrast(.9) saturate(.55)}
+.stops li{grid-template-columns:84px 1fr 132px}
+.stops time{grid-column:1;grid-row:1}
+.stops li>div{grid-row:1}
+.stops .tr{padding-left:0}
+.th{grid-column:3;grid-row:1;margin:0 0 0 14px;width:118px;height:88px;overflow:hidden;border:1px solid var(--ln);background:var(--sf);display:grid;place-items:center}
+.th .art{width:52px;height:52px;margin:0;opacity:.65}
+.th img{width:100%;height:100%;object-fit:cover;display:block}
+.th.has{border-color:var(--gold)}
+@media(max-width:600px){
+.stops li{display:flow-root}
+.th{float:right;width:92px;height:68px;margin:2px 0 8px 12px}
+.th .art{width:38px;height:38px}
+.stops .n{display:flow-root}
+}
 </style>
 </head>
 <body>
@@ -291,7 +307,7 @@ footer .cr{text-transform:none;letter-spacing:.02em;font-size:.72rem;margin-top:
 </div></section>
 
 <div class="brk" data-k="thu"><span>Big Ben, first night.</span></div>
-<footer><svg class="sky" viewBox="0 0 600 120" preserveAspectRatio="xMidYMax meet" aria-hidden="true"><use href="#skyline"/></svg><div class="w"><b>Simran & Jag</b><p>London · November 19–23, 2026</p><p>First London trip, husband and wife</p><p class="cr">Photography via Wikimedia Commons: Diliff and Martin Falbisoner, CC BY-SA. Add your own in the img folder.</p></div></footer>
+<footer><svg class="sky" viewBox="0 0 600 120" preserveAspectRatio="xMidYMax meet" aria-hidden="true"><use href="#skyline"/></svg><div class="w"><b>Simran & Jag</b><p>London · November 19–23, 2026</p><p>First London trip, husband and wife</p><p class="cr">Photography via Wikimedia Commons: Diliff and Martin Falbisoner, CC BY-SA. Landmark thumbnails via Wikipedia. Add your own in the img folder.</p></div></footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script>
@@ -350,10 +366,22 @@ fri:[null,["Tube","~25 min","Jubilee to Green Park, then walk"],["Walk","10 min"
 sat:[null,null,["Uber / cab","35–45 min","best with luggage"],["Tube","~20 min","Central line to St Paul’s"],["Walk","5 min"],["Walk","15 min"],["Walk","20 min","along the Thames Path"],["Uber / cab","15–20 min"],["Uber / cab","~20 min"],["Uber / cab","~20 min"],["Uber / cab","~15 min"]],
 sun:[["Walk","10 min"],["Walk","10 min"],["Bus","50–60 min","the Tube is ~25 min"],["Walk","10 min"],["Walk","10 min"],["Tube","~35 min","Central line, then walk"],["Uber / cab","15–20 min"],["Walk","10–15 min"]],
 mon:[null,["Walk","10 min"],null,["Elizabeth line","~1 hr","Uber is 60–90 min in traffic"],null,null]};
+const IM={
+thu:["s:plane","w:Heathrow Airport|plane","s:hotelA","r:Bill’s, Baker Street","w:Big Ben|bigben","w:Double-decker bus|bus","w:Covent Garden|skyline","r:Circolo Popolare","w:Soho|box"],
+fri:["s:hotelA","w:St James's Park|palace","w:Buckingham Palace|palace","r:Gymkhana","w:Piccadilly Circus|skyline","w:Trafalgar Square|skyline","s:hotelA","r:The Ivy Market Grill"],
+sat:["s:hotelA","s:hotelA","s:hotelB","w:St Paul's Cathedral|dome","w:Millennium Bridge, London|bridge","w:Borough Market|skyline","w:Tower Bridge|bridge","s:hotelB","r:The Tamil Prince","w:Shoreditch|hotelB","r:Brutto"],
+sun:["r:Dishoom Shoreditch","w:Old Spitalfields Market|hotelB","w:Double-decker bus|bus","w:Notting Hill|box","w:Kensington Gardens|palace","r:14 Stories","s:hotelB","r:Gloria London"],
+mon:["s:hotelB","w:Brick Lane|hotelB","s:hotelB","w:Heathrow Airport|plane","s:plane","w:San Francisco International Airport|plane"]};
+function thumb(sp){const k=sp[0],v=sp.slice(2).split("|"),n=v[0],sym=k=="s"?n:(v[1]||"skyline");return `<figure class="th" data-k="${k}" data-n="${n}"><svg class="art" viewBox="0 0 100 100" aria-hidden="true"><use href="#${sym}"/></svg></figure>`}
+const WC={};
 const $=s=>document.querySelector(s);
 $("#routeList").innerHTML=D.map(d=>`<li style="--c:${d.c}"><button data-d="${d.id}"><small>${d.k}</small><h3>${d.t}</h3><p>${d.o}</p><span class="meal">${d.m}</span></button></li>`).join("");
 $("#tabs").innerHTML=D.map((d,i)=>`<button role="tab" id="t-${d.id}" aria-selected="${i==0}" aria-controls="p-${d.id}" data-d="${d.id}" style="--c:${d.c};--on:${d.on}">${d.k}</button>`).join("");
-$("#panels").innerHTML=D.map((d,i)=>`<article class="day${i?"":" on"}" id="p-${d.id}" role="tabpanel" aria-labelledby="t-${d.id}" style="--c:${d.c};--on:${d.on}"><div class="dhead"><svg class="art" viewBox="0 0 100 100" aria-hidden="true"><use href="#${d.a}"/></svg><small>${d.k} November</small><h3>${d.t}</h3><p>${d.s}</p></div><ol class="stops">${d.st.map((s,j)=>{const x=(TR[d.id]||[])[j],tr=x?`<div class="tr"><b>${x[0]}</b>${x[1]}${x[2]?` · ${x[2]}`:""}</div>`:"";const cf=s[4]=="conf"||s[3]=="conf"?" conf":"";const note=s[3]&&s[3]!="conf"?`<div class="n">${s[3]}</div>`:"";return `<li class="${cf.trim()}"><time>${s[0]}</time><div>${tr}<h4>${s[1]}</h4><p>${s[2]}</p>${note}</div></li>`}).join("")}</ol></article>`).join("");
+$("#panels").innerHTML=D.map((d,i)=>`<article class="day${i?"":" on"}" id="p-${d.id}" role="tabpanel" aria-labelledby="t-${d.id}" style="--c:${d.c};--on:${d.on}"><div class="dhead"><svg class="art" viewBox="0 0 100 100" aria-hidden="true"><use href="#${d.a}"/></svg><small>${d.k} November</small><h3>${d.t}</h3><p>${d.s}</p></div><ol class="stops">${d.st.map((s,j)=>{const x=(TR[d.id]||[])[j],tr=x?`<div class="tr"><b>${x[0]}</b>${x[1]}${x[2]?` · ${x[2]}`:""}</div>`:"";const cf=s[4]=="conf"||s[3]=="conf"?" conf":"";const note=s[3]&&s[3]!="conf"?`<div class="n">${s[3]}</div>`:"";return `<li class="${cf.trim()}">${thumb((IM[d.id]||[])[j]||"s:skyline")}<time>${s[0]}</time><div>${tr}<h4>${s[1]}</h4><p>${s[2]}</p>${note}</div></li>`}).join("")}</ol></article>`).join("");
+document.querySelectorAll(".th").forEach(f=>{const k=f.dataset.k,n=f.dataset.n;
+ const set=u=>{const i=new Image();i.alt=n.split(",")[0];i.onload=()=>{f.classList.add("has");f.replaceChildren(i)};i.src=u};
+ if(k=="r"){const t=document.querySelector('.tkt img[alt="'+n+'"]');if(t)set(t.src)}
+ else if(k=="w"){WC[n]=WC[n]||fetch("https://en.wikipedia.org/api/rest_v1/page/summary/"+encodeURIComponent(n.replace(/ /g,"_"))).then(r=>r.json()).catch(()=>({}));WC[n].then(j=>{if(j.thumbnail)set(j.thumbnail.source)})}});
 function show(id,scroll){
  document.querySelectorAll(".day").forEach(p=>p.classList.toggle("on",p.id=="p-"+id));
  document.querySelectorAll("#tabs button").forEach(b=>b.setAttribute("aria-selected",b.dataset.d==id));
@@ -388,7 +416,7 @@ const PT={lhr:["Heathrow",51.47,-0.4543],hy:["Hyatt Regency",51.5141,-0.1585],bi
 const DR={thu:["lhr","hy","bil","wm","cg","cir","sox"],fri:["hy","sj","bp","gym","car","tra","ivy"],sat:["hy","aet","stp","mil","bor","twb","aet","tam","aet","bru"],sun:["dis","spi","nh","kg","s14","glo"],mon:["aet","lhr"]};
 const DC={thu:"#ecd9a8",fri:"#e39a7b",sat:"#8cc7a6",sun:"#9bb7e8",mon:"#bdb3a3"},DN={thu:"Thursday",fri:"Friday",sat:"Saturday",sun:"Sunday",mon:"Monday"};
 const m=L.map("map",{scrollWheelZoom:false}).setView([51.515,-0.12],12);
-L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{attribution:"© OpenStreetMap contributors © CARTO",maxZoom:18}).addTo(m);
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"© OpenStreetMap contributors",maxZoom:18}).addTo(m);
 const G={};
 Object.keys(DR).forEach(d=>{const ks=DR[d];G[d]=L.featureGroup([L.polyline(ks.map(k=>[PT[k][1],PT[k][2]]),{color:DC[d],weight:3,opacity:.85,dashArray:"6 8"}),...ks.filter((k,i)=>ks.indexOf(k)==i).map(k=>L.marker([PT[k][1],PT[k][2]],{icon:L.divIcon({className:"",html:`<i class="pin" style="--p:${DC[d]}"></i>`,iconSize:[18,18]})}).bindPopup(`<b>${PT[k][0]}</b><br>${DN[d]}`))])});
 const pp=Object.entries(PT).filter(e=>e[0]!="lhr").map(e=>[e[1][2]*69.3,e[1][1]*111.19,e[1][1],e[1][2]]).sort((a,b)=>a[0]-b[0]||a[1]-b[1]);
