@@ -225,6 +225,9 @@ footer .cr{text-transform:none;letter-spacing:.02em;font-size:.72rem;margin-top:
 .leaflet-control-layers label{margin:2px 0}
 .leaflet-bar a{background:#13110f;color:#c9a96a;border-color:#3a3226}
 .leaflet-bar a:hover{background:#1b1711;color:#ecd9a8}
+.mp{color:inherit;text-decoration:none;border-bottom:1px solid #c9a96a66}.mp::after{content:" ↗";font:500 .55em Jost,sans-serif;color:var(--gold)}
+.tl{margin-left:6px;color:var(--gold);white-space:nowrap}
+.leaflet-popup-content a{color:#c9a96a}
 </style>
 </head>
 <body>
@@ -327,14 +330,15 @@ const D=[
 ["3:15 PM","Covent Garden and Seven Dials","Wander, shop and coffee for an hour, then walk north toward Fitzrovia."],
 ["4:30 PM","Circolo Popolare","Your confirmed table at 40–41 Rathbone Place, near the British Museum. A relaxed early dinner suits a jet-lagged first day.","Booked · party of 2, 4:30 PM.","conf"],
 ["6:30 PM","Soho lights and an early night","A slow stroll through Soho and Oxford Street, then back to rest.","You’re jet-lagged. Don’t overreach; make it beautiful instead."]]},
-{id:"fri",a:"palace",k:"Fri 20",t:"Royal London.",c:"#2f5bea",on:"#fff",o:"St James’s Park, Buckingham Palace, a long Gymkhana lunch, Soho, Trafalgar Square and dinner at The Ivy.",m:"Lunch at Gymkhana · dinner at The Ivy Market Grill",s:"The palace, the park, the phone boxes and the West End: the classic first-timer day.",st:[
+{id:"fri",a:"palace",k:"Fri 20",t:"Royal London.",c:"#2f5bea",on:"#fff",o:"St James’s Park, Buckingham Palace, a long Gymkhana lunch, Soho, Trafalgar Square, an Uber Boat at dusk and dinner at The Ivy.",m:"Lunch at Gymkhana · dinner at The Ivy Market Grill",s:"The palace, the park, the phone boxes and the West End: the classic first-timer day.",st:[
 ["8:30 AM","Slow breakfast","Coffee and pastries near the hotel. No rush."],
 ["9:45 AM","St James’s Park","Walk through the park toward Buckingham Palace, one of the prettiest approaches."],
 ["11:00 AM","Changing of the Guard","Watch the ceremony at Buckingham Palace, subject to the official schedule.","It doesn’t run every day. Reconfirm the date and time before you go, and arrive early for a viewing spot."],
 ["12:00 PM","Gymkhana lunch","Your confirmed Mayfair table, 12:00 to 2:00 PM. It’s a short walk from the palace via Green Park.","Booked · BKJW8N3FCT5Y. If the ceremony runs long, the table wins.","conf"],
 ["2:30 PM","Piccadilly, Regent Street, Carnaby, Soho","Browse rather than race. Grab a snack in Chinatown or BAO if you’re peckish."],
 ["4:00 PM","Trafalgar Square at dusk","Catch the lights coming on, plus the red phone box and black cab photos."],
-["5:30 PM","Hotel reset","Shower, dress up and take a proper break."],
+["4:45 PM","Uber Boat at dusk","Hop on an Uber Boat by Thames Clippers at Embankment Pier and ride to Tower Pier, about 30–40 minutes on the water as the city lights come on, finishing beside Tower Bridge.","Our pick for the boat: Friday, right after Trafalgar Square. Check the winter timetable in the Uber app before you set off and wrap up warm for the open deck."],
+["6:00 PM","Hotel reset","A quick shower and change before dinner."],
 ["7:30 PM","The Ivy Market Grill","Your confirmed table in Covent Garden, standard seating for two. Dress up for the night.","Booked · party of 2.","conf"]]},
 {id:"sat",a:"bridge",k:"Sat 21",t:"Change the view.",c:"#00964a",on:"#fff",o:"Check out, bags to Aethos, St Paul’s, Borough Market, Tower Bridge, The Tamil Prince and Brutto.",m:"Lunch at Borough Market · Tamil Prince 5:15 · Brutto 9:15",s:"Check out of Marylebone, walk through the City, cross the Thames, arrive in Shoreditch.",st:[
 ["8:00 AM","Breakfast and pack","Last morning at the Hyatt. Pack everything so the move is painless."],
@@ -346,6 +350,7 @@ const D=[
 ["2:15 PM","Tower Bridge","Walk toward Tower Bridge for the classic river photographs."],
 ["3:00 PM","Check in at Aethos Shoreditch","Settle into the Deluxe Room, freshen up and rest before dinner. Your bags are already waiting."],
 ["5:15 PM","The Tamil Prince","Your confirmed counter seats in Islington, 5:15 to 7:00 PM. An early dinner before your late table.","Booked · reservation #4XTR6R4KW2MH, under Simran Dhillon.","conf"],
+["7:00 PM","Around The Tamil Prince (optional)","If you have buffer time before or after dinner, this pocket of Islington is lovely: browse Camden Passage near Angel, stroll the Georgian streets of Barnsbury, grab a drink or a bookshop on Upper Street, or walk the Regent’s Canal towpath.","Saturday evening is dark by 5 PM, so keep it to an easy lit-street wander. Hours vary, so check before you go."],
 ["7:45 PM","Shoreditch after dark","Brick Lane, Spitalfields and Redchurch Street. Let the neighbourhood lead."],
 ["9:15 PM","Brutto, Italian date night","Your confirmed late dinner for two in Clerkenwell. Consider using part of the $100 hotel credit if you’re eligible.","Booked · party of 2.","conf"]]},
 {id:"sun",a:"bus",k:"Sun 22",t:"The postcard.",c:"#f5b700",on:"#0d1b2e",o:"Dishoom, Spitalfields and Brick Lane, a bus west, Notting Hill, golden hour, sunset drinks, Gloria.",m:"Breakfast at Dishoom · sunset drinks · dinner at Gloria",s:"Markets, buses, colourful streets and sunset drinks, then one spectacular final dinner.",st:[
@@ -366,23 +371,30 @@ const D=[
 ["4:55 PM","Touch down at SFO","Home, after the best first trip to London."]]}
 ];
 const TR={
-thu:[["Uber / car","~30–45 min","leave home by 9:00 AM"],null,["Uber / cab","45–60 min","Elizabeth line to Bond St is cheaper"],["Walk","10 min"],["Tube","~15 min","Jubilee line from Baker St"],["Bus","20–30 min","upstairs, front seat"],["Walk","~25 min","or a 10 min cab"],["Walk","~20 min"],["Walk","10 min"]],
-fri:[null,["Tube","~25 min","Jubilee to Green Park, then walk"],["Walk","10 min"],["Walk","15 min","via Green Park"],["Walk","10 min"],["Walk","15 min"],["Uber / cab","15–20 min"],["Uber / cab","~20 min"]],
-sat:[null,null,["Uber / cab","35–45 min","best with luggage"],["Tube","~20 min","Central line to St Paul’s"],["Walk","5 min"],["Walk","15 min"],["Walk","20 min","along the Thames Path"],["Uber / cab","15–20 min"],["Uber / cab","~20 min"],["Uber / cab","~20 min"],["Uber / cab","~15 min"]],
+thu:[["Uber / car","~30–45 min","leave home by 9:00 AM"],["On foot","terminal to arrivals","allow 45–90 min for immigration and bags"],["Uber / cab","45–60 min","Elizabeth line to Bond St is cheaper"],["Walk","10 min"],["Tube","~15 min","Jubilee line from Baker St"],["Bus","20–30 min","upstairs, front seat"],["Walk","~25 min","or a 10 min cab"],["Walk","~20 min"],["Walk","10 min"]],
+fri:[["At hotel","5 min","breakfast nearby"],["Tube","~25 min","Jubilee to Green Park, then walk"],["Walk","10 min"],["Walk","15 min","via Green Park"],["Walk","10 min"],["Walk","15 min"],["Walk","10 min","to Embankment Pier"],["Uber / cab","25–35 min","from Tower Pier"],["Uber / cab","~20 min"]],
+sat:[["At hotel","breakfast on site"],["At hotel","~10 min at the desk"],["Uber / cab","35–45 min","best with luggage"],["Tube","~20 min","Central line to St Paul’s"],["Walk","5 min"],["Walk","15 min"],["Walk","20 min","along the Thames Path"],["Uber / cab","15–20 min"],["Uber / cab","~20 min"],["Walk","10–20 min","depending on what you pick"],["Uber / cab","~20 min","from Islington"],["Uber / cab","~15 min"]],
 sun:[["Walk","10 min"],["Walk","10 min"],["Bus","50–60 min","the Tube is ~25 min"],["Walk","10 min"],["Walk","10 min"],["Tube","~35 min","Central line, then walk"],["Uber / cab","15–20 min"],["Walk","10–15 min"]],
-mon:[null,["Walk","10 min"],null,["Elizabeth line","~1 hr","Uber is 60–90 min in traffic"],null,null]};
+mon:[["At hotel","breakfast on site"],["Walk","10 min"],["Walk","5 min","back to the hotel"],["Elizabeth line","~1 hr","Uber is 60–90 min in traffic"],["At airport","terminal to gate","UA 949 departs 1:45 PM"],["Arrival","UA 949 lands 4:55 PM"]]};
 const IM={
 thu:["s:plane","w:Heathrow Airport|plane","s:hotelA","r:Bill’s, Baker Street","w:Big Ben|bigben","w:Double-decker bus|bus","w:Covent Garden|skyline","r:Circolo Popolare","w:Soho|box"],
-fri:["s:hotelA","w:St James's Park|palace","w:Buckingham Palace|palace","r:Gymkhana","w:Piccadilly Circus|skyline","w:Trafalgar Square|skyline","s:hotelA","r:The Ivy Market Grill"],
-sat:["s:hotelA","s:hotelA","s:hotelB","w:St Paul's Cathedral|dome","w:Millennium Bridge, London|bridge","w:Borough Market|skyline","w:Tower Bridge|bridge","s:hotelB","r:The Tamil Prince","w:Shoreditch|hotelB","r:Brutto"],
+fri:["s:hotelA","w:St James's Park|palace","w:Buckingham Palace|palace","r:Gymkhana","w:Piccadilly Circus|skyline","w:Trafalgar Square|skyline","w:Thames Clippers|bridge","s:hotelA","r:The Ivy Market Grill"],
+sat:["s:hotelA","s:hotelA","s:hotelB","w:St Paul's Cathedral|dome","w:Millennium Bridge, London|bridge","w:Borough Market|skyline","w:Tower Bridge|bridge","s:hotelB","r:The Tamil Prince","w:Camden Passage|skyline","w:Shoreditch|hotelB","r:Brutto"],
 sun:["r:Dishoom Shoreditch","w:Old Spitalfields Market|hotelB","w:Double-decker bus|bus","w:Notting Hill|box","w:Kensington Gardens|palace","r:14 Stories","s:hotelB","r:Gloria London"],
 mon:["s:hotelB","w:Brick Lane|hotelB","s:hotelB","w:Heathrow Airport|plane","s:plane","w:San Francisco International Airport|plane"]};
+const ML={
+thu:["San Francisco International Airport","Heathrow Airport","%s","Bill's Baker Street, London","Big Ben, Westminster, London","Parliament Square, London","Covent Garden, London","Circolo Popolare, 40-41 Rathbone Pl, London W1T 1HX","Soho, London"],
+fri:["%s","St James's Park, London","Buckingham Palace, London","Gymkhana, 42 Albemarle St, London W1S 4JH","Carnaby Street, London","Trafalgar Square, London","Embankment Pier, London","%s","The Ivy Market Grill, 1 Henrietta St, London WC2E 8PS"],
+sat:["%s","%s","%a","St Paul's Cathedral, London","Millennium Bridge, London","Borough Market, London","Tower Bridge, London","%a","The Tamil Prince, 115 Hemingford Rd, London N1 1BZ","Camden Passage, Islington, London","Brick Lane, London","Trattoria Brutto, 35 Warner St, London"],
+sun:["Dishoom Shoreditch, 7 Boundary St, London E2 7JE","Old Spitalfields Market, London","Liverpool Street Station, London","Portobello Road Market, London","Kensington Gardens, London","14 Stories, 120 Fenchurch St, London EC3M 5BA","%a","Gloria London, 54-56 Great Eastern St, London EC2A 3QR"],
+mon:["%a","Brick Lane, London","%a","Heathrow Airport","Heathrow Airport","San Francisco International Airport"]};
+Object.values(ML).forEach(a=>a.forEach((v,i)=>{a[i]=v=="%s"?"Hyatt Regency London The Churchill, 30 Portman Square, London":v=="%a"?"Aethos London Shoreditch":v}));
 function thumb(sp){const k=sp[0],v=sp.slice(2).split("|"),n=v[0],sym=k=="s"?n:(v[1]||"skyline");return `<figure class="th" data-k="${k}" data-n="${n}"><svg class="art" viewBox="0 0 100 100" aria-hidden="true"><use href="#${sym}"/></svg></figure>`}
 const WC={};
 const $=s=>document.querySelector(s);
 $("#routeList").innerHTML=D.map(d=>`<li style="--c:${d.c}"><button data-d="${d.id}"><small>${d.k}</small><h3>${d.t}</h3><p>${d.o}</p><span class="meal">${d.m}</span></button></li>`).join("");
 $("#tabs").innerHTML=D.map((d,i)=>`<button role="tab" id="t-${d.id}" aria-selected="${i==0}" aria-controls="p-${d.id}" data-d="${d.id}" style="--c:${d.c};--on:${d.on}">${d.k}</button>`).join("");
-$("#panels").innerHTML=D.map((d,i)=>`<article class="day${i?"":" on"}" id="p-${d.id}" role="tabpanel" aria-labelledby="t-${d.id}" style="--c:${d.c};--on:${d.on}"><div class="dhead"><svg class="art" viewBox="0 0 100 100" aria-hidden="true"><use href="#${d.a}"/></svg><small>${d.k} November</small><h3>${d.t}</h3><p>${d.s}</p></div><ol class="stops">${d.st.map((s,j)=>{const x=(TR[d.id]||[])[j],tr=x?`<div class="tr"><b>${x[0]}</b>${x[1]}${x[2]?` · ${x[2]}`:""}</div>`:"";const cf=s[4]=="conf"||s[3]=="conf"?" conf":"";const note=s[3]&&s[3]!="conf"?`<div class="n">${s[3]}</div>`:"";return `<li class="${cf.trim()}">${thumb((IM[d.id]||[])[j]||"s:skyline")}<time>${s[0]}</time><div>${tr}<h4>${s[1]}</h4><p>${s[2]}</p>${note}</div></li>`}).join("")}</ol></article>`).join("");
+$("#panels").innerHTML=D.map((d,i)=>`<article class="day${i?"":" on"}" id="p-${d.id}" role="tabpanel" aria-labelledby="t-${d.id}" style="--c:${d.c};--on:${d.on}"><div class="dhead"><svg class="art" viewBox="0 0 100 100" aria-hidden="true"><use href="#${d.a}"/></svg><small>${d.k} November</small><h3>${d.t}</h3><p>${d.s}</p></div><ol class="stops">${d.st.map((s,j)=>{const x=(TR[d.id]||[])[j],q=encodeURIComponent((ML[d.id]||[])[j]||s[1]+" London"),md=x?(/walk/i.test(x[0])?"walking":/tube|bus|line/i.test(x[0])?"transit":/uber|cab|car/i.test(x[0])?"driving":""):"",tr=x?`<div class="tr"><b>${x[0]}</b>${x[1]}${x[2]?` · ${x[2]}`:""}${md?` <a class="tl" href="https://www.google.com/maps/dir/?api=1&destination=${q}&travelmode=${md}" target="_blank" rel="noopener">Directions ↗</a>`:""}</div>`:"";const cf=s[4]=="conf"||s[3]=="conf"?" conf":"";const note=s[3]&&s[3]!="conf"?`<div class="n">${s[3]}</div>`:"";return `<li class="${cf.trim()}">${thumb((IM[d.id]||[])[j]||"s:skyline")}<time>${s[0]}</time><div>${tr}<h4><a class="mp" href="https://www.google.com/maps/search/?api=1&query=${q}" target="_blank" rel="noopener">${s[1]}</a></h4><p>${s[2]}</p>${note}</div></li>`}).join("")}</ol></article>`).join("");
 document.querySelectorAll(".th").forEach(f=>{const k=f.dataset.k,n=f.dataset.n;
  const set=u=>{const i=new Image();i.alt=n.split(",")[0];i.onload=()=>{f.classList.add("has");f.replaceChildren(i)};i.src=u};
  if(k=="r"){const t=document.querySelector('.tkt img[alt="'+n+'"]');if(t)set(t.src)}
@@ -393,10 +405,10 @@ function show(id,scroll){
  if(scroll)$("#days").scrollIntoView();
 }
 document.addEventListener("click",e=>{const b=e.target.closest("[data-d]");if(b)show(b.dataset.d,true)});
-const T=[["Hyatt Regency London, Nov 19–21, confirmed",1],["Aethos London Shoreditch, Nov 21–23, confirmed",1],["Gymkhana, Fri Nov 20, 12:00–2:00 PM, confirmed",1],["Dishoom Shoreditch, Sun Nov 22, 11:00 AM, confirmed",1],["Bill’s, Baker Street, Thu 11:00, confirmed",1],["Circolo Popolare, Thu 4:30 PM, confirmed",1],["The Ivy Market Grill, Fri 7:30 PM, confirmed",1],["The Tamil Prince, Sat 5:15 PM, confirmed",1],["Brutto, Sat 9:15 PM, confirmed",1],["Sunset drinks at 14 Stories, Sun 4:30 PM, confirmed",1],["Gloria London, Sun 7:00 PM, confirmed",1],["Reconfirm the Changing of the Guard schedule",0],["Confirm Aethos $100 property-credit eligibility",0],["Confirm Aethos breakfast benefit at check-in",0],["Leave for SFO by 9:00 AM Wed Nov 18 (checked bag)",0],["Leave Aethos by 9:15–9:30 AM Mon Nov 23 (checked bag)",0],["Check in online for UA 901 and UA 949",0],["Save hotel confirmations offline",0],["Pack comfortable walking shoes and one date-night outfit",0],["Pack a compact umbrella",0],["Use the same contactless card or phone for all transit",0]];
+const T=[["Hyatt Regency London, Nov 19–21, confirmed",1],["Aethos London Shoreditch, Nov 21–23, confirmed",1],["Gymkhana, Fri Nov 20, 12:00–2:00 PM, confirmed",1],["Dishoom Shoreditch, Sun Nov 22, 11:00 AM, confirmed",1],["Bill’s, Baker Street, Thu 11:00, confirmed",1],["Circolo Popolare, Thu 4:30 PM, confirmed",1],["The Ivy Market Grill, Fri 7:30 PM, confirmed",1],["The Tamil Prince, Sat 5:15 PM, confirmed",1],["Brutto, Sat 9:15 PM, confirmed",1],["Sunset drinks at 14 Stories, Sun 4:30 PM, confirmed",1],["Gloria London, Sun 7:00 PM, confirmed",1],["Reconfirm the Changing of the Guard schedule",0],["Confirm Aethos $100 property-credit eligibility",0],["Confirm Aethos breakfast benefit at check-in",0],["Leave for SFO by 9:00 AM Wed Nov 18 (checked bag)",0],["Leave Aethos by 9:15–9:30 AM Mon Nov 23 (checked bag)",0],["Check in online for UA 901 and UA 949",0],["Check Uber Boat winter timetable for Fri ~4:45 PM",0],["Save hotel confirmations offline",0],["Pack comfortable walking shoes and one date-night outfit",0],["Pack a compact umbrella",0],["Use the same contactless card or phone for all transit",0]];
 $("#todoList").innerHTML=T.map((t,i)=>`<label><input type="checkbox" data-i="${i}" ${t[1]?"checked":""}><span>${t[0]}</span></label>`).join("");
 document.querySelectorAll("#todoList input").forEach(c=>{
- const k="london26f-"+c.dataset.i;
+ const k="london26g-"+c.dataset.i;
  try{const v=localStorage.getItem(k);if(v!==null)c.checked=v==="1"}catch(e){}
  c.addEventListener("change",()=>{try{localStorage.setItem(k,c.checked?"1":"0")}catch(e){}});
 });
@@ -417,8 +429,8 @@ function tick(){const n=Date.now();let h;
 tick();setInterval(tick,1000)})();
 (function(){
 if(!window.L)return;
-const PT={lhr:["Heathrow",51.47,-0.4543],hy:["Hyatt Regency",51.5141,-0.1585],bil:["Bill’s, Baker Street",51.5204,-0.1573],wm:["Westminster and Big Ben",51.5007,-0.1246],cg:["Covent Garden",51.5117,-0.1226],cir:["Circolo Popolare",51.5176,-0.1349],sox:["Soho lights",51.5136,-0.1324],sj:["St James’s Park",51.5025,-0.1348],bp:["Buckingham Palace",51.5014,-0.1419],gym:["Gymkhana",51.5086,-0.1425],car:["Piccadilly and Carnaby",51.5133,-0.1406],tra:["Trafalgar Square",51.508,-0.1281],ivy:["The Ivy Market Grill",51.5118,-0.1237],aet:["Aethos Shoreditch",51.5253,-0.0786],stp:["St Paul’s Cathedral",51.5138,-0.0984],mil:["Millennium Bridge",51.5095,-0.0985],bor:["Borough Market",51.5055,-0.091],twb:["Tower Bridge",51.5055,-0.0754],tam:["The Tamil Prince",51.5385,-0.1155],bru:["Brutto",51.5226,-0.11],dis:["Dishoom Shoreditch",51.5252,-0.0777],spi:["Spitalfields and Brick Lane",51.5198,-0.0716],nh:["Notting Hill",51.5155,-0.205],kg:["Kensington Gardens",51.5057,-0.1877],s14:["14 Stories",51.513,-0.08],glo:["Gloria London",51.5245,-0.08]};
-const DR={thu:["lhr","hy","bil","wm","cg","cir","sox"],fri:["hy","sj","bp","gym","car","tra","ivy"],sat:["hy","aet","stp","mil","bor","twb","aet","tam","aet","bru"],sun:["dis","spi","nh","kg","s14","glo"],mon:["aet","lhr"]};
+const PT={lhr:["Heathrow",51.47,-0.4543],hy:["Hyatt Regency",51.5141,-0.1585],bil:["Bill’s, Baker Street",51.5204,-0.1573],wm:["Westminster and Big Ben",51.5007,-0.1246],cg:["Covent Garden",51.5117,-0.1226],cir:["Circolo Popolare",51.5176,-0.1349],sox:["Soho lights",51.5136,-0.1324],sj:["St James’s Park",51.5025,-0.1348],bp:["Buckingham Palace",51.5014,-0.1419],gym:["Gymkhana",51.5086,-0.1425],car:["Piccadilly and Carnaby",51.5133,-0.1406],tra:["Trafalgar Square",51.508,-0.1281],emb:["Embankment Pier",51.5083,-0.1226],twp:["Tower Pier",51.5065,-0.0764],cam:["Camden Passage",51.5339,-0.1032],ivy:["The Ivy Market Grill",51.5118,-0.1237],aet:["Aethos Shoreditch",51.5253,-0.0786],stp:["St Paul’s Cathedral",51.5138,-0.0984],mil:["Millennium Bridge",51.5095,-0.0985],bor:["Borough Market",51.5055,-0.091],twb:["Tower Bridge",51.5055,-0.0754],tam:["The Tamil Prince",51.5385,-0.1155],bru:["Brutto",51.5226,-0.11],dis:["Dishoom Shoreditch",51.5252,-0.0777],spi:["Spitalfields and Brick Lane",51.5198,-0.0716],nh:["Notting Hill",51.5155,-0.205],kg:["Kensington Gardens",51.5057,-0.1877],s14:["14 Stories",51.513,-0.08],glo:["Gloria London",51.5245,-0.08]};
+const DR={thu:["lhr","hy","bil","wm","cg","cir","sox"],fri:["hy","sj","bp","gym","car","tra","emb","twp","hy","ivy"],sat:["hy","aet","stp","mil","bor","twb","aet","tam","cam","aet","bru"],sun:["dis","spi","nh","kg","s14","glo"],mon:["aet","lhr"]};
 const DC={thu:"#ecd9a8",fri:"#e39a7b",sat:"#8cc7a6",sun:"#9bb7e8",mon:"#bdb3a3"},DN={thu:"Thursday",fri:"Friday",sat:"Saturday",sun:"Sunday",mon:"Monday"};
 const m=L.map("map",{scrollWheelZoom:true,dragging:!L.Browser.mobile,minZoom:9,maxZoom:19}).setView([51.515,-0.12],12);
 const E=(p,n)=>L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/"+p+"/MapServer/tile/{z}/{y}/{x}",{attribution:"Tiles © Esri",maxNativeZoom:n,maxZoom:19});
@@ -426,7 +438,7 @@ const dark=L.layerGroup([E("Canvas/World_Dark_Gray_Base",16),E("Canvas/World_Dar
 L.control.layers({"Dark":dark,"Street":E("World_Street_Map",19),"Satellite":E("World_Imagery",19)},null,{collapsed:false,position:"topright"}).addTo(m);
 
 const G={};
-Object.keys(DR).forEach(d=>{const ks=DR[d];G[d]=L.featureGroup([L.polyline(ks.map(k=>[PT[k][1],PT[k][2]]),{color:DC[d],weight:3,opacity:.85,dashArray:"6 8"}),...ks.filter((k,i)=>ks.indexOf(k)==i).map(k=>L.marker([PT[k][1],PT[k][2]],{icon:L.divIcon({className:"",html:`<i class="pin" style="--p:${DC[d]}"></i>`,iconSize:[18,18]})}).bindPopup(`<b>${PT[k][0]}</b><br>${DN[d]}`))])});
+Object.keys(DR).forEach(d=>{const ks=DR[d];G[d]=L.featureGroup([L.polyline(ks.map(k=>[PT[k][1],PT[k][2]]),{color:DC[d],weight:3,opacity:.85,dashArray:"6 8"}),...ks.filter((k,i)=>ks.indexOf(k)==i).map(k=>L.marker([PT[k][1],PT[k][2]],{icon:L.divIcon({className:"",html:`<i class="pin" style="--p:${DC[d]}"></i>`,iconSize:[18,18]})}).bindPopup(`<b>${PT[k][0]}</b><br>${DN[d]}<br><a href="https://www.google.com/maps/search/?api=1&query=${PT[k][1]},${PT[k][2]}" target="_blank" rel="noopener">Open in Google Maps ↗</a>`))])});
 const pp=Object.entries(PT).filter(e=>e[0]!="lhr").map(e=>[e[1][2]*69.3,e[1][1]*111.19,e[1][1],e[1][2]]).sort((a,b)=>a[0]-b[0]||a[1]-b[1]);
 const cr=(o,a,b)=>(a[0]-o[0])*(b[1]-o[1])-(a[1]-o[1])*(b[0]-o[0]);
 const ch=h=>{const r=[];for(const p of h){while(r.length>1&&cr(r[r.length-2],r[r.length-1],p)<=0)r.pop();r.push(p)}r.pop();return r};
